@@ -1,0 +1,22 @@
+{
+  "name": "graphic-tech-backend",
+  "version": "1.0.0",
+  "description": "Backend API Server for Graphic TECH Web Application",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "keywords": [
+    "express",
+    "backend",
+    "dashboard",
+    "graphic-tech"
+  ],
+  "author": "Graphic TECH Team",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.19.2"
+  }
+}

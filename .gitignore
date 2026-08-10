@@ -1,0 +1,32 @@
+# Laravel / PHP
+/vendor/
+/node_modules/
+composer.phar
+
+# Environment
+.env
+.env.backup
+.env.*.backup
+
+# Storage & Uploads
+/storage/app/
+/storage/framework/cache/
+/storage/framework/sessions/
+/storage/framework/views/
+/storage/logs/
+/uploads/
+
+# Build outputs
+/public/hot
+/public/storage
+
+# VS Code
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Lock files (optional: remove these lines if you want to commit them)
+# package-lock.json
+# composer.lock
