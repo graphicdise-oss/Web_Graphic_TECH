@@ -92,6 +92,27 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
+  /* --- URL Hash Tab Routing ---
+     รองรับ admin.html#tab=portfolio เพื่อเปิด tab ที่ถูกต้องโดยตรง */
+  function switchTab(tabId) {
+    const validTabs = ["overview", "portfolio", "banners", "testimonials", "messages", "settings"];
+    if (!validTabs.includes(tabId)) tabId = "overview";
+
+    sidebarLinks.forEach(l => l.classList.remove("active"));
+    const targetLink = document.querySelector(`.sidebar__menu a[data-tab="${tabId}"]`);
+    if (targetLink) targetLink.classList.add("active");
+
+    tabPanes.forEach(pane => {
+      pane.classList.toggle("active", pane.id === `tab-${tabId}`);
+    });
+  }
+
+  function getHashTab() {
+    const hash = window.location.hash; // e.g. "#tab=portfolio"
+    const match = hash.match(/^#tab=(.+)$/);
+    return match ? match[1] : null;
+  }
+
   function renderDashboard() {
     renderOverviewTab();
     renderPortfolioTab();
@@ -99,6 +120,12 @@ document.addEventListener("DOMContentLoaded", function () {
     renderTestimonialsTab();
     renderMessagesTab();
     renderSettingsTab();
+
+    // Open the tab specified in URL hash (if any)
+    const hashTab = getHashTab();
+    if (hashTab) {
+      switchTab(hashTab);
+    }
   }
 
   /* --- 3. OVERVIEW TAB --- */
