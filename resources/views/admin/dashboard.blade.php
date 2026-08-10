@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Admin Dashboard | Graphic TECH</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap">
@@ -41,58 +42,9 @@
             overflow-x: hidden;
         }
 
-        /* ═════════ LOGIN SCREEN ═════════ */
-        #loginScreen {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-            background: linear-gradient(135deg, var(--primary-deep) 0%, var(--primary) 100%);
-            padding: 20px;
-        }
-
-        .login-card {
-            background: #fff;
-            padding: 40px;
-            border-radius: var(--r-md);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-            width: 100%;
-            max-width: 420px;
-            text-align: center;
-        }
-
-        .login-card h2 {
-            color: var(--ink);
-            margin-bottom: 8px;
-            font-weight: 700;
-            font-size: 1.6rem;
-        }
-
-        .login-card h2 span {
-            color: var(--primary);
-        }
-
-        .login-card p {
-            color: var(--body);
-            font-size: 0.9rem;
-            margin-bottom: 24px;
-        }
-
-        .error-msg {
-            background: #FFE5E5;
-            color: var(--danger);
-            padding: 10px 14px;
-            border-radius: var(--r-sm);
-            font-size: 0.85rem;
-            margin-bottom: 20px;
-            display: none;
-            text-align: left;
-            border-left: 4px solid var(--danger);
-        }
-
         /* ═════════ DASHBOARD LAYOUT ═════════ */
         #dashboardScreen {
-            display: none;
+            display: flex;
             min-height: 100vh;
             flex-direction: row;
         }
@@ -716,37 +668,7 @@
 
 <body>
 
-    <!-- ═════════ 1. LOGIN SCREEN ═════════ -->
-    <div id="loginScreen">
-        <div class="login-card">
-            <h2>Graphic<span>TECH</span> Admin</h2>
-            <p>กรอกชื่อผู้ใช้และรหัสผ่านเพื่อเข้าสู่ระบบหลังบ้าน</p>
-
-            <div style="background: rgba(33, 150, 243, 0.08); border: 1px dashed var(--primary); padding: 10px; border-radius: var(--r-sm); margin-bottom: 20px; font-size: 0.85rem; color: var(--primary-dark);">
-                🔑 <strong>ข้อมูลเข้าใช้งานทดสอบ:</strong><br>
-                ชื่อผู้ใช้: <code>admin</code> | รหัสผ่าน: <code>1234</code>
-            </div>
-
-            <div id="loginError" class="error-msg">ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง!</div>
-
-            <form id="loginForm">
-                <div class="form-group">
-                    <label>ชื่อผู้ใช้ (Username)</label>
-                    <input type="text" id="username" value="admin" placeholder="ชื่อผู้ใช้ (เช่น admin)" required>
-                </div>
-                <div class="form-group">
-                    <label>รหัสผ่าน (Password)</label>
-                    <input type="password" id="password" value="1234" placeholder="รหัสผ่าน (เช่น 1234)" required>
-                </div>
-                <button type="submit" class="btn btn-primary btn-block">เข้าสู่ระบบหลังบ้าน</button>
-            </form>
-            <a href="index.html" style="display: inline-block; margin-top: 20px; font-size: 0.85rem; color: var(--primary); text-decoration: none;">
-                &larr; กลับไปหน้าเว็บไซต์หลัก
-            </a>
-        </div>
-    </div>
-
-    <!-- ═════════ 2. DASHBOARD SCREEN ═════════ -->
+    <!-- ═════════ DASHBOARD SCREEN (auth already enforced by the 'auth' route middleware) ═════════ -->
     <div id="dashboardScreen">
 
         <!-- Sidebar Navigation -->
@@ -790,13 +712,19 @@
                     </a>
                 </li>
                 <li>
+                    <a href="#" data-tab="posters">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 15l5-5 4 4 5-5 4 4"/></svg>
+                        โปสเตอร์โปรโมท (Posters)
+                    </a>
+                </li>
+                <li>
                     <a href="#" data-tab="settings">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-2 2 2 2 0 01-2-2v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83 0 2 2 0 010-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 01-2-2 2 2 0 012-2h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 010-2.83 2 2 0 012.83 0l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 012-2 2 2 0 012 2v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 0 2 2 0 010 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 012 2 2 2 0 01-2 2h-.09a1.65 1.65 0 00-1.51 1z"/></svg>
                         ตั้งค่าระบบ (Settings)
                     </a>
                 </li>
                 <li style="margin-top: auto; border-top: 1px solid rgba(255,255,255,0.1);">
-                    <a href="index.html" target="_blank">
+                    <a href="{{ route('home') }}" target="_blank">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
                         ดูหน้าเว็บไซต์จริง &nearr;
                     </a>
@@ -807,8 +735,11 @@
         <!-- Main Content Area -->
         <main class="main-content">
             <header class="top-bar">
-                <h2 id="adminNameHeading">ยินดีต้อนรับ, แอดมิน</h2>
-                <button id="logoutBtn" class="btn btn-outline btn-sm">ออกจากระบบ</button>
+                <h2 id="adminNameHeading">ยินดีต้อนรับ, {{ auth()->user()->name }}</h2>
+                <form action="{{ route('admin.logout') }}" method="POST">
+                    @csrf
+                    <button type="submit" id="logoutBtn" class="btn btn-outline btn-sm">ออกจากระบบ</button>
+                </form>
             </header>
 
             <div class="content-area">
@@ -984,27 +915,71 @@
                     </div>
                 </div>
 
-                <!-- ════ TAB 6: SETTINGS ════ -->
-                <div class="tab-pane" id="tab-settings">
+                <!-- ════ TAB: POSTERS (promotional images scoped to a service page) ════ -->
+                <div class="tab-pane" id="tab-posters">
                     <div class="card">
-                        <h3>ตั้งค่ารหัสผ่านผู้ดูแลระบบ (Admin Account Settings)</h3>
-                        <form id="settingsForm">
-                            <div class="form-group">
-                                <label>ชื่อผู้ใช้ใหม่ (Admin Username)</label>
-                                <input type="text" id="settingUsername" required>
+                        <h3>เพิ่มโปสเตอร์โปรโมทใหม่</h3>
+                        <p style="margin-bottom: 16px; font-size: .9rem; color: var(--body);">
+                            โปสเตอร์จะแสดงในหน้าบริการที่เลือกไว้ (ส่วน "โปสเตอร์โปรโมท")
+                        </p>
+                        <form id="posterForm">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>หัวข้อโปสเตอร์ (Title)</label>
+                                    <input type="text" id="posterTitle" placeholder="เช่น โปรโมชั่นทำเว็บไซต์ต้อนรับปีใหม่">
+                                </div>
+                                <div class="form-group">
+                                    <label>แสดงในหน้าบริการ (Service Page)</label>
+                                    <select id="posterService">
+                                        <option value="">— ทุกหน้า / ไม่ระบุ —</option>
+                                        @foreach ($services as $service)
+                                            <option value="{{ $service->id }}">{{ $service->name }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
                             </div>
                             <div class="form-group">
-                                <label>รหัสผ่านใหม่ (Admin Password)</label>
+                                <label>ลิงก์เมื่อคลิก (ไม่บังคับ)</label>
+                                <input type="text" id="posterLink" placeholder="เช่น #contact หรือ https://...">
+                            </div>
+                            <div class="form-group">
+                                <label>อัปโหลดรูปภาพ หรือใส่ URL รูปภาพ *</label>
+                                <input type="file" id="posterImgFile" accept="image/*" style="margin-bottom: 8px;">
+                                <input type="text" id="posterImgUrl" placeholder="หรือวางลิงก์รูปภาพที่นี่ (http://...)">
+                                <img id="posterPreviewImg" src="" alt="Preview" style="max-height: 140px; border-radius: 6px; display: none; margin-top: 10px; object-fit: cover;">
+                            </div>
+                            <button type="submit" class="btn btn-primary">เพิ่มโปสเตอร์</button>
+                        </form>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header-flex">
+                            <h3>โปสเตอร์ทั้งหมด <span class="badge badge-info" id="posterCountBadge">0 รายการ</span></h3>
+                        </div>
+                        <div class="banner-grid" id="postersGrid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px;">
+                            <!-- Populated via admin.js -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ════ TAB: SETTINGS ════ -->
+                <div class="tab-pane" id="tab-settings">
+                    <div class="card">
+                        <h3>ตั้งค่าบัญชีผู้ดูแลระบบ (Admin Account Settings)</h3>
+                        <p style="margin-bottom: 16px; font-size: .85rem; color: var(--body);">
+                            อีเมลเข้าสู่ระบบ: <strong>{{ auth()->user()->email }}</strong>
+                        </p>
+                        <form id="settingsForm">
+                            <div class="form-group">
+                                <label>ชื่อที่แสดง (Display Name)</label>
+                                <input type="text" id="settingUsername" value="{{ auth()->user()->name }}" required>
+                            </div>
+                            <div class="form-group">
+                                <label>รหัสผ่านใหม่ (เว้นว่างถ้าไม่ต้องการเปลี่ยน)</label>
                                 <input type="password" id="settingPassword" placeholder="กรอกรหัสผ่านใหม่ที่ต้องการตั้ง">
                             </div>
                             <button type="submit" class="btn btn-primary">บันทึกการตั้งค่า</button>
                         </form>
-                    </div>
-
-                    <div class="card" style="border-color: #FFCDD2;">
-                        <h3 style="color: var(--danger);">รีเซ็ตระบบกลับเป็นค่าเริ่มต้น (Reset Seed Data)</h3>
-                        <p style="margin-bottom: 16px; font-size: 0.9rem;">หากต้องการคืนค่าผลงาน แบนเนอร์ รีวิว และข้อความเริ่มต้นของระบบ สามารถกดปุ่มด้านล่างได้</p>
-                        <button id="resetSeedBtn" class="btn btn-outline-danger">รีเซ็ตข้อมูลทั้งหมดกลับเป็นค่าเริ่มต้น</button>
                     </div>
                 </div>
 
@@ -1102,8 +1077,18 @@
     <div id="toastContainer"></div>
 
     <!-- SCRIPTS -->
-    <script src="js/api-store.js"></script>
-    <script src="js/admin.js"></script>
+    <script>
+        window.__ADMIN_DATA__ = {
+            stats: @json($stats),
+            services: @json($services),
+            portfolios: @json($portfolios),
+            banners: @json($banners),
+            testimonials: @json($testimonials),
+            messages: @json($messages),
+            posters: @json($posters),
+        };
+    </script>
+    <script src="{{ asset('js/admin.js') }}"></script>
 </body>
 
 </html>

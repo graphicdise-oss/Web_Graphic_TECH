@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Banner;
 use App\Models\Portfolio;
+use App\Models\Service;
 use App\Models\Testimonial;
 
 class HomeController extends Controller
@@ -12,18 +12,38 @@ class HomeController extends Controller
     public function index()
     {
         $banners = Banner::where('active', true)->latest()->get();
+        $services = Service::orderBy('id')->get();
         $portfolios = Portfolio::latest()->get();
         $testimonials = Testimonial::latest()->get();
 
-        return view('home', compact('banners', 'portfolios', 'testimonials'));
+        $portfolioItems = $portfolios->map(function (Portfolio $item) {
+            $service = $item->service_id ? Service::find($item->service_id) : null;
+
+            return [
+                'id' => $item->id,
+                'title' => $item->title,
+                'category' => $item->category,
+                'image' => $item->image,
+                'tags' => $item->tags ?? [],
+                'year' => $item->year,
+                'service_slug' => $service?->slug,
+                'page_url' => $service ? route('page', $service->slug) : null,
+            ];
+        })->values();
+
+        return view('home', compact('banners', 'services', 'portfolios', 'portfolioItems', 'testimonials'));
     }
 
-    public function page($slug)
+    public function page(string $slug)
     {
-        $view = 'pages.' . $slug;
-        if (view()->exists($view)) {
-            return view($view);
+        if ($slug === 'about') {
+            return view('pages.about');
         }
-        abort(404);
+
+        $service = Service::where('slug', $slug)->firstOrFail();
+        $posters = $service->posters()->where('active', true)->orderBy('sort_order')->get();
+        $portfolios = $service->portfolios()->latest()->get();
+
+        return view('pages.service', compact('service', 'posters', 'portfolios'));
     }
 }

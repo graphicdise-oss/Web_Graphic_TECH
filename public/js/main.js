@@ -141,7 +141,8 @@
   onScroll();
 
   /* ------------------------------------------------------------
-     DYNAMIC PORTFOLIO GRID (Connected to GTStore Backend)
+     DYNAMIC PORTFOLIO GRID (data supplied server-side via
+     window.PORTFOLIO_ITEMS, rendered inline by the Blade view)
      ------------------------------------------------------------ */
   const grid = document.getElementById("portfolioGrid");
   const loadMoreBtn = document.getElementById("loadMoreBtn");
@@ -160,9 +161,7 @@
   };
 
   function filteredItems() {
-    let source = (window.GTStore && window.GTStore.getPortfolio)
-      ? window.GTStore.getPortfolio()
-      : (typeof PORTFOLIO_ITEMS !== "undefined" ? PORTFOLIO_ITEMS : []);
+    const source = typeof PORTFOLIO_ITEMS !== "undefined" ? PORTFOLIO_ITEMS : [];
 
     if (activeFilter === "all") return source;
     return source.filter(function (item) {
@@ -173,39 +172,24 @@
   function renderPortfolioItem(item, isFeaturedSpot) {
     const el = document.createElement("div");
     el.className = "portfolio-item reveal-scale" + (isFeaturedSpot ? " span-2" : "");
-    el.tabIndex = 0;
 
-    const page = CATEGORY_PAGE_MAP[item.category] || "";
-    const fallbackSvg = (window.GTStore && window.GTStore.makePlaceholderImage)
-      ? window.GTStore.makePlaceholderImage(item.title, item.category)
-      : "";
-    const imgSrc = item.image || fallbackSvg;
+    const page = item.service_slug || CATEGORY_PAGE_MAP[item.category] || "";
+    const pageUrl = item.page_url || (page ? "/pages/" + page : "");
+    const imgSrc = item.image || "";
 
     el.innerHTML = `
       <img src="${imgSrc}" alt="${item.title}" loading="lazy">
       <div class="portfolio-item__overlay">
         <p class="portfolio-item__category">${item.category}</p>
         <p class="portfolio-item__title">${item.title}</p>
-        <span class="portfolio-item__link" ${page ? `data-page="${page}"` : ""}>
-          ดูรายละเอียด
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-        </span>
-      </div>`;
-
-    const img = el.querySelector("img");
-    if (img) {
-      img.addEventListener("error", function () {
-        if (fallbackSvg && img.src !== fallbackSvg) {
-          img.src = fallbackSvg;
+        ${pageUrl
+          ? `<a class="portfolio-item__link" href="${pageUrl}" target="_blank" rel="noopener">
+               ดูรายละเอียด
+               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+             </a>`
+          : ""
         }
-      });
-    }
-
-    if (page) {
-      el.dataset.page = page;
-      el.setAttribute("role", "button");
-      el.setAttribute("aria-label", item.title + " — ดูรายละเอียด");
-    }
+      </div>`;
 
     return el;
   }
@@ -367,51 +351,6 @@
       e.preventDefault();
       target.scrollIntoView({ behavior: "smooth", block: "start" });
     });
-  });
-
-  /* ------------------------------------------------------------
-     ADMIN FAB & THEME PANEL INTERACTION
-     ------------------------------------------------------------ */
-  document.addEventListener("DOMContentLoaded", function () {
-    const adminFab = document.getElementById("adminFab");
-    const adminPanel = document.getElementById("adminPanel");
-    const themeSwatches = document.getElementById("themeSwatches");
-
-    if (adminFab && adminPanel) {
-      adminFab.addEventListener("click", function (e) {
-        e.stopPropagation();
-        const isOpen = adminPanel.classList.toggle("is-open");
-        adminFab.setAttribute("aria-expanded", String(isOpen));
-      });
-
-      document.addEventListener("click", function (e) {
-        if (!adminPanel.contains(e.target) && !adminFab.contains(e.target)) {
-          adminPanel.classList.remove("is-open");
-          adminFab.setAttribute("aria-expanded", "false");
-        }
-      });
-    }
-
-    if (themeSwatches) {
-      themeSwatches.addEventListener("click", function (e) {
-        const swatch = e.target.closest(".swatch");
-        if (!swatch) return;
-        themeSwatches.querySelectorAll(".swatch").forEach(s => s.classList.remove("is-active"));
-        swatch.classList.add("is-active");
-        const theme = swatch.getAttribute("data-swatch");
-
-        if (theme === "blue") {
-          document.documentElement.style.setProperty("--primary", "#2196F3");
-          document.documentElement.style.setProperty("--primary-dark", "#1976D2");
-        } else if (theme === "deep") {
-          document.documentElement.style.setProperty("--primary", "#0D47A1");
-          document.documentElement.style.setProperty("--primary-dark", "#0A3880");
-        } else if (theme === "sky") {
-          document.documentElement.style.setProperty("--primary", "#0288D1");
-          document.documentElement.style.setProperty("--primary-dark", "#01579B");
-        }
-      });
-    }
   });
 
 })();

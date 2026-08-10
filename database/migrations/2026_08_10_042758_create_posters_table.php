@@ -13,6 +13,12 @@ return new class extends Migration
     {
         Schema::create('posters', function (Blueprint $table) {
             $table->id();
+            $table->string('title')->nullable();
+            $table->text('image');
+            $table->string('link')->nullable();
+            $table->foreignId('service_id')->nullable()->constrained()->nullOnDelete();
+            $table->boolean('active')->default(true);
+            $table->integer('sort_order')->default(0);
             $table->timestamps();
         });
     }
