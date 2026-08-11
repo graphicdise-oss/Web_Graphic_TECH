@@ -586,6 +586,7 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 22px;
+  grid-auto-flow: dense;
 }
 
 .portfolio-grid>.span-2 {
@@ -815,7 +816,7 @@
    TESTIMONIALS
    ------------------------------------------------------------ */
 .testimonials {
-  background: var(--grad-deep);
+  background: var(--grad-primary);
   position: relative;
   overflow: hidden;
 }
@@ -858,12 +859,12 @@
 }
 
 .t-card {
-  background: rgba(255, 255, 255, .07);
-  border: 1px solid rgba(255, 255, 255, .16);
+  background: var(--surface);
+  border: 1px solid var(--line);
   border-radius: var(--r-lg);
   padding: 34px 30px 30px;
   position: relative;
-  backdrop-filter: blur(6px);
+  box-shadow: var(--shadow-md);
 }
 
 .t-card::before {
@@ -875,7 +876,7 @@
   font-size: 5rem;
   font-weight: 700;
   line-height: 1;
-  color: rgba(255, 255, 255, .1);
+  color: var(--blue-50);
   pointer-events: none;
 }
 
@@ -893,7 +894,7 @@
 }
 
 .t-card__quote {
-  color: rgba(255, 255, 255, .92);
+  color: var(--ink);
   font-size: .96rem;
   line-height: 1.85;
   margin-bottom: 24px;
@@ -921,13 +922,13 @@
 
 .t-card__person b {
   display: block;
-  color: #fff;
+  color: var(--ink);
   font-size: .92rem;
 }
 
 .t-card__person span {
   font-size: .78rem;
-  color: rgba(255, 255, 255, .62);
+  color: var(--body);
 }
 
 .t-controls {

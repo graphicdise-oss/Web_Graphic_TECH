@@ -61,9 +61,17 @@
       message: formData.get('message') || document.getElementById('cf-message')?.value || '',
     };
 
-    if (window.GTStore && window.GTStore.addMessage) {
-      window.GTStore.addMessage(msgPayload);
-    }
+    const token = document.querySelector('meta[name="csrf-token"]')?.getAttribute('content');
+    fetch('/api/contact', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-CSRF-TOKEN': token || ''
+      },
+      body: JSON.stringify(msgPayload)
+    }).then(res => {
+      // Continue regardless of success for UI smoothness
+    }).catch(err => console.error(err));
 
     if (success) success.classList.add('is-visible');
     form.reset();

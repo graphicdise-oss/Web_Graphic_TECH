@@ -1,200 +1,13 @@
-<!DOCTYPE html>
-<html lang="th">
+@extends('layouts.app')
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description"
-    content="Graphic TECH">
-  <title>Graphic TECH</title>
+@section('title', 'Graphic TECH - หน้าหลัก')
+@section('nav_active_home', 'active')
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700;800&family=Sora:wght@400;500;600;700;800&display=swap">
-
-  <link rel="stylesheet" href="{{ asset('css/base.css') }}">
-  <link rel="stylesheet" href="{{ asset('css/components.css') }}">
-  <link rel="stylesheet" href="{{ asset('css/layout.css') }}">
+@section('extra_css')
   <link rel="stylesheet" href="{{ asset('css/home.css') }}">
-  <link rel="stylesheet" href="{{ asset('css/animations.css') }}">
-</head>
+@endsection
 
-<body>
-  <a href="#main" class="skip-link">ข้ามไปยังเนื้อหาหลัก</a>
-
-  <!-- ═══════════════════════ TOP BAR ═══════════════════════ -->
-  <div class="topbar">
-    <div class="container topbar__inner">
-      <div class="topbar__meta">
-        <a href="tel:021234567" class="topbar__hide-sm">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path
-              d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.362 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0122 16.92z" />
-          </svg>
-          02-123-4567
-        </a>
-        <a href="mailto:hello@graphictech.co.th">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M4 4h16a2 2 0 012 2v12a2 2 0 01-2 2H4a2 2 0 01-2-2V6a2 2 0 012-2z" />
-            <path d="M22 6l-10 7L2 6" />
-          </svg>
-          hello@graphictech.co.th
-        </a>
-        <span class="topbar__hide-sm">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <rect x="3" y="4" width="18" height="18" rx="2" />
-            <path d="M16 2v4M8 2v4M3 10h18" />
-          </svg>
-          จันทร์–เสาร์ 9:00–18:00
-        </span>
-      </div>
-      <div class="topbar__social">
-        <a href="#" aria-label="Facebook"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-            <path
-              d="M22 12a10 10 0 10-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.77-3.89 1.09 0 2.24.2 2.24.2v2.46H15.2c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.99A10 10 0 0022 12z" />
-          </svg></a>
-        <a href="#" aria-label="Instagram"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"
-            stroke="currentColor" stroke-width="2">
-            <rect x="2" y="2" width="20" height="20" rx="5" />
-            <circle cx="12" cy="12" r="4" />
-            <circle cx="17.5" cy="6.5" r="1" />
-          </svg></a>
-        <a href="#" aria-label="LINE"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-            <path
-              d="M12 2C6.48 2 2 5.94 2 10.7c0 4.27 3.56 7.85 8.37 8.55.33.07.77.22.88.5.1.26.07.66.03.92l-.14.9c-.04.26-.2 1.02.9.56 1.1-.47 5.93-3.5 8.09-6 1.5-1.65 2.22-3.32 2.22-5.43C22.35 5.94 17.87 2 12 2z" />
-          </svg></a>
-      </div>
-    </div>
-  </div>
-
-  <!-- ═══════════════════════ NAVBAR ═══════════════════════ -->
-  <header class="navbar" id="navbar">
-    <div class="container nav__inner">
-      <a href="#home" class="nav__logo">
-        <span class="nav__logo-mark">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-            stroke-linejoin="round">
-            <path d="M12 2l9 4.9v10.2L12 22l-9-4.9V6.9L12 2z" />
-            <path d="M12 22V12M21 6.9L12 12 3 6.9" />
-          </svg>
-        </span>
-        <span class="nav__logo-text">
-          <b>Graphic<span>TECH</span></b>
-          <small>Creative &amp; Technology Studio</small>
-        </span>
-      </a>
-
-      <button class="nav__toggle" id="navToggle" aria-label="เปิดเมนู" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
-      <div class="nav__backdrop" id="navBackdrop"></div>
-
-      <nav class="nav__menu" id="navMenu" aria-label="เมนูหลัก">
-        <div class="nav__item">
-          <a href="#home" class="nav__link is-active">หน้าแรก</a>
-        </div>
-        <div class="nav__item">
-          <a href="#services" class="nav__link">
-            บริการของเรา
-            <svg class="caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <polyline points="6 9 12 15 18 9" />
-            </svg>
-          </a>
-          <div class="nav__mega">
-            <div class="nav__mega-grid">
-              <a href="#" class="mega-link" data-page="service-uiux">
-                <span class="mega-link__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                    stroke-width="1.6">
-                    <rect x="2" y="3" width="20" height="14" rx="2" />
-                    <path d="M8 21h8M12 17v4" />
-                  </svg></span>
-                <span><b>UI/UX Design</b>
-                  <p>ออกแบบประสบการณ์ผู้ใช้ที่ใช้งานง่ายและสวยงาม</p>
-                </span>
-              </a>
-              <a href="#" class="mega-link" data-page="service-graphic">
-                <span class="mega-link__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                    stroke-width="1.6">
-                    <circle cx="13.5" cy="6.5" r="2.5" />
-                    <circle cx="6.5" cy="14.5" r="2.5" />
-                    <path d="M17 21v-1a4 4 0 00-4-4H5a4 4 0 00-4 4v1" />
-                    <path d="M22 11l-3-3-7 7-3-3" />
-                  </svg></span>
-                <span><b>Graphic Design</b>
-                  <p>งานกราฟิกดิจิทัลและสิ่งพิมพ์ที่โดดเด่น</p>
-                </span>
-              </a>
-              <a href="#" class="mega-link" data-page="service-web">
-                <span class="mega-link__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                    stroke-width="1.6">
-                    <polyline points="16 18 22 12 16 6" />
-                    <polyline points="8 6 2 12 8 18" />
-                  </svg></span>
-                <span><b>Web Development</b>
-                  <p>เว็บไซต์และแอปพลิเคชันที่รวดเร็วปลอดภัย</p>
-                </span>
-              </a>
-              <a href="#" class="mega-link" data-page="service-marketing">
-                <span class="mega-link__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                    stroke-width="1.6">
-                    <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
-                  </svg></span>
-                <span><b>Digital Marketing</b>
-                  <p>กลยุทธ์การตลาดดิจิทัลที่ขับเคลื่อนด้วยข้อมูล</p>
-                </span>
-              </a>
-              <a href="#" class="mega-link" data-page="service-erp">
-                <span class="mega-link__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                    stroke-width="1.6">
-                    <rect x="3" y="3" width="7" height="7" />
-                    <rect x="14" y="3" width="7" height="7" />
-                    <rect x="14" y="14" width="7" height="7" />
-                    <rect x="3" y="14" width="7" height="7" />
-                  </svg></span>
-                <span><b>ERP System</b>
-                  <p>ระบบจัดการองค์กรครบวงจร เพิ่มประสิทธิภาพธุรกิจ</p>
-                </span>
-              </a>
-              <a href="#" class="mega-link" data-page="service-branding">
-                <span class="mega-link__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                    stroke-width="1.6">
-                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
-                  </svg></span>
-                <span><b>Branding</b>
-                  <p>สร้างตัวตนแบรนด์ที่จดจำได้และแข็งแกร่ง</p>
-                </span>
-              </a>
-            </div>
-            <div class="nav__mega-foot">
-              <p><strong>ไม่แน่ใจว่าต้องใช้บริการไหน?</strong> ปรึกษาทีมงานได้ฟรี</p>
-              <a href="#contact" class="btn btn-primary btn-sm">ปรึกษาฟรี</a>
-            </div>
-          </div>
-        </div>
-        <div class="nav__item"><a href="#portfolio" class="nav__link">ผลงานของเรา</a></div>
-        <div class="nav__item"><a href="#why" class="nav__link">ทำไมต้องเรา</a></div>
-        <div class="nav__item"><a href="#" class="nav__link" data-page="about">เกี่ยวกับเรา</a></div>
-        <div class="nav__item"><a href="#faq" class="nav__link">FAQ</a></div>
-        <div class="nav__item"><a href="#contact" class="nav__link">ติดต่อเรา</a></div>
-      </nav>
-
-      <div class="nav__actions">
-        <div class="nav__phone">
-          <span class="nav__phone-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path
-                d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.362 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0122 16.92z" />
-            </svg>
-          </span>
-          <span><small>โทรปรึกษาฟรี</small><b>02-123-4567</b></span>
-        </div>
-        <a href="#contact" class="btn btn-primary btn-sm">ปรึกษาผู้เชี่ยวชาญฟรี</a>
-      </div>
-    </div>
-    <span class="scroll-progress" id="scrollProgress"></span>
-  </header>
-
-  <main id="main">
+@section('content')
 
 
 
@@ -202,7 +15,7 @@
     <section class="hero" id="home">
       <div class="hero-grid-bg" aria-hidden="true"></div>
       <div class="hero-media" aria-hidden="true">
-        <video autoplay muted loop playsinline poster="assets/images/brand/bg-hero.jpg') }}">
+        <video autoplay muted loop playsinline poster="{{ asset('assets/images/brand/bg-hero.jpg') }}">
           <source src="{{ asset('assets/images/brand/hero-loop.mp4') }}" type="video/mp4">
         </video>
       </div>
@@ -212,7 +25,7 @@
       <div class="container">
         <div class="hero__inner">
           <div class="hero__content">
-            <p class="eyebrow hero-anim hd-1">Creative × Technology Studio</p>
+          
             <h1 class="hero__title hero-anim hd-2">
               <span class="line">สร้างแบรนด์ให้แข็งแกร่ง</span>
               <span class="line">ด้วยดีไซน์และเทคโนโลยี</span>
@@ -223,34 +36,8 @@
               Digital Marketing, ERP System และ Branding ที่พร้อมยกระดับธุรกิจของคุณให้เติบโต
               อย่างมั่นคงและน่าเชื่อถือ
             </p>
-            <div class="hero__actions hero-anim hd-4">
-              <a href="#contact" class="btn btn-primary btn-lg">
-                ปรึกษาผู้เชี่ยวชาญฟรี
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M5 12h14M13 6l6 6-6 6" />
-                </svg>
-              </a>
-              <a href="#portfolio" class="btn btn-ghost btn-lg">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z" />
-                  <circle cx="12" cy="12" r="3" />
-                </svg>
-                ดูผลงานของเรา
-              </a>
-            </div>
-            <div class="hero__trust hero-anim hd-5">
-              <div class="trust-chips">
-                <span class="trust-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
-                    <path d="M20 6L9 17l-5-5" />
-                  </svg>ผลงานกว่า 500+ โปรเจกต์</span>
-                <span class="trust-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
-                    <path d="M20 6L9 17l-5-5" />
-                  </svg>ลูกค้าไว้วางใจ 150+ แบรนด์</span>
-                <span class="trust-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
-                    <path d="M20 6L9 17l-5-5" />
-                  </svg>ประสบการณ์กว่า 8 ปี</span>
-              </div>
-            </div>
+
+
           </div>
 
           <div class="hero__visual hero-anim hd-3">
@@ -261,35 +48,22 @@
                 <path d="M12 22V12M21 6.9L12 12 3 6.9" />
               </svg>
 
-              <figure class="collage-card collage-card--a float-shape float-shape--sm" style="--r:-4deg">
-                <div class="collage-card__thumb">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
-                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
-                  </svg>
-                </div>
-                <figcaption class="collage-card__tag">Kinto Coffee — Brand System<small>Branding · 2023</small>
-                </figcaption>
-              </figure>
-
-              <figure class="collage-card collage-card--b float-shape float-shape--sm" style="--r:5deg">
-                <div class="collage-card__thumb">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
-                    <polyline points="16 18 22 12 16 6" />
-                    <polyline points="8 6 2 12 8 18" />
-                  </svg>
-                </div>
-                <figcaption class="collage-card__tag">ArtSpace Gallery<small>Web Development</small></figcaption>
-              </figure>
-
-              <figure class="collage-card collage-card--c float-shape float-shape--sm" style="--r:3deg">
-                <div class="collage-card__thumb">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
-                    <rect x="2" y="3" width="20" height="14" rx="2" />
-                    <path d="M8 21h8M12 17v4" />
-                  </svg>
-                </div>
-                <figcaption class="collage-card__tag">ReBank Mobile UX<small>UI/UX Design</small></figcaption>
-              </figure>
+              @if(isset($posters) && $posters->count() > 0)
+                @foreach($posters as $poster)
+                  <figure class="collage-card {{ $poster->css_class }} float-shape float-shape--sm" style="--r:{{ $poster->rotation }}">
+                    <div class="collage-card__thumb">
+                      @if($poster->image)
+                        <img src="{{ asset($poster->image) }}" alt="{{ $poster->title }}" style="width:100%; height:100%; object-fit:cover;">
+                      @else
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                          <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+                        </svg>
+                      @endif
+                    </div>
+                    <figcaption class="collage-card__tag">{{ $poster->title }}<small>{{ $poster->subtitle }}</small></figcaption>
+                  </figure>
+                @endforeach
+              @endif
 
               <div class="hero__collage-stat">
                 <span class="icon-tile icon-tile--sm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -300,15 +74,12 @@
                   </svg></span>
                 <span><b>150+</b><span>แบรนด์ไว้วางใจ</span></span>
               </div>
-            </div>
+              </div>
           </div>
         </div>
       </div>
 
-      <div class="hero__scroll">
-        <span>Scroll</span>
-        <span class="wheel"></span>
-      </div>
+
     </section>
 
 
@@ -425,7 +196,6 @@
       <div class="container">
         <div class="sec-head sec-head--split reveal">
           <div class="sec-head__main">
-            <p class="eyebrow">What We Do</p>
             <h2>บริการของเรา<br>ครบวงจรทุกมิติ</h2>
           </div>
           <p class="sec-head__aside">ตั้งแต่การวางกลยุทธ์ ออกแบบ ไปจนถึงพัฒนาระบบ
@@ -434,8 +204,8 @@
         </div>
 
         <div class="grid grid-3">
-          <article class="service-card service-card--featured reveal d-1" data-page="service-uiux" tabindex="0"
-            role="button" aria-label="UI/UX Design">
+          <a href="{{ route('page', 'service-uiux') }}" class="service-card reveal d-1"
+            aria-label="UI/UX Design" style="text-decoration:none;display:block;">
             <span class="service-card__num">01</span>
             <span class="icon-tile">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"
@@ -453,10 +223,10 @@
                   <path d="M5 12h14M13 6l6 6-6 6" />
                 </svg></span>
             </div>
-          </article>
+          </a>
 
-          <article class="service-card reveal d-2" data-page="service-graphic" tabindex="0" role="button"
-            aria-label="Graphic Design">
+          <a href="{{ route('page', 'service-graphic') }}" class="service-card reveal d-2"
+            aria-label="Graphic Design" style="text-decoration:none;display:block;">
             <span class="service-card__num">02</span>
             <span class="icon-tile">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"
@@ -476,10 +246,10 @@
                   <path d="M5 12h14M13 6l6 6-6 6" />
                 </svg></span>
             </div>
-          </article>
+          </a>
 
-          <article class="service-card reveal d-3" data-page="service-web" tabindex="0" role="button"
-            aria-label="Web Development">
+          <a href="{{ route('page', 'service-web') }}" class="service-card reveal d-3"
+            aria-label="Web Development" style="text-decoration:none;display:block;">
             <span class="service-card__num">03</span>
             <span class="icon-tile">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"
@@ -497,10 +267,10 @@
                   <path d="M5 12h14M13 6l6 6-6 6" />
                 </svg></span>
             </div>
-          </article>
+          </a>
 
-          <article class="service-card reveal d-1" data-page="service-marketing" tabindex="0" role="button"
-            aria-label="Digital Marketing">
+          <a href="{{ route('page', 'service-marketing') }}" class="service-card reveal d-1"
+            aria-label="Digital Marketing" style="text-decoration:none;display:block;">
             <span class="service-card__num">04</span>
             <span class="icon-tile">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"
@@ -517,10 +287,10 @@
                   <path d="M5 12h14M13 6l6 6-6 6" />
                 </svg></span>
             </div>
-          </article>
+          </a>
 
-          <article class="service-card reveal d-2" data-page="service-erp" tabindex="0" role="button"
-            aria-label="ERP System">
+          <a href="{{ route('page', 'service-erp') }}" class="service-card reveal d-2"
+            aria-label="ERP System" style="text-decoration:none;display:block;">
             <span class="service-card__num">05</span>
             <span class="icon-tile">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"
@@ -540,10 +310,10 @@
                   <path d="M5 12h14M13 6l6 6-6 6" />
                 </svg></span>
             </div>
-          </article>
+          </a>
 
-          <article class="service-card reveal d-3" data-page="service-branding" tabindex="0" role="button"
-            aria-label="Branding">
+          <a href="{{ route('page', 'service-branding') }}" class="service-card reveal d-3"
+            aria-label="Branding" style="text-decoration:none;display:block;">
             <span class="service-card__num">06</span>
             <span class="icon-tile">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"
@@ -560,15 +330,6 @@
                   <path d="M5 12h14M13 6l6 6-6 6" />
                 </svg></span>
             </div>
-          </article>
-        </div>
-
-        <div class="services__foot reveal">
-          <a href="#contact" class="btn btn-primary">ปรึกษาผู้เชี่ยวชาญฟรี</a>
-          <a href="#portfolio" class="link-arrow">ดูผลงานที่ผ่านมา
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M5 12h14M13 6l6 6-6 6" />
-            </svg>
           </a>
         </div>
       </div>
@@ -578,7 +339,6 @@
     <section class="section portfolio" id="portfolio">
       <div class="container">
         <div class="sec-head reveal">
-          <p class="eyebrow eyebrow--tag">Our Work</p>
           <h2>ผลงานที่ผ่านมาของเรา</h2>
           <p>ตัวอย่างส่วนหนึ่งจากผลงานที่เราภาคภูมิใจ ครอบคลุมหลากหลายอุตสาหกรรม</p>
         </div>
@@ -624,7 +384,6 @@
           </div>
 
           <div class="why__content reveal-right">
-            <p class="eyebrow">Why Graphic TECH</p>
             <h2>เหตุผลที่แบรนด์ชั้นนำ<br>เลือกไว้วางใจเรา</h2>
             <p class="lead">เราไม่ได้เป็นแค่ผู้รับจ้างทำงาน แต่เป็นพาร์ทเนอร์ที่เข้าใจเป้าหมายธุรกิจ
               และส่งมอบผลลัพธ์ที่วัดผลได้จริงในทุกโปรเจกต์</p>
@@ -683,7 +442,6 @@
     <section class="section testimonials" id="testimonials">
       <div class="container">
         <div class="sec-head sec-head--center reveal">
-          <p class="eyebrow eyebrow--light">Testimonials</p>
           <h2>เสียงจากลูกค้าของเรา</h2>
           <p>ความไว้วางใจจากลูกค้าคือเครื่องพิสูจน์คุณภาพงานของเราที่ดีที่สุด</p>
         </div>
@@ -940,33 +698,11 @@
       </div>
     </section>
 
-    <!-- ═══════════════════════ CTA BAND ═══════════════════════ -->
-    <section class="section section--tight cta-band">
-      <div class="container">
-        <div class="cta-band__inner reveal-scale">
-          <div class="cta-band__text">
-            <h2>พร้อมเริ่มต้นโปรเจกต์ถัดไปกับเราหรือยัง?</h2>
-            <p>ปรึกษาทีมผู้เชี่ยวชาญของเราวันนี้ ฟรี ไม่มีค่าใช้จ่าย พร้อมประเมิน Scope และงบประมาณเบื้องต้นให้ทันที</p>
-          </div>
-          <div class="cta-band__actions">
-            <a href="#contact" class="btn btn-white btn-lg">ปรึกษาผู้เชี่ยวชาญฟรี</a>
-            <a href="tel:021234567" class="btn btn-line-outline btn-lg">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path
-                  d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.362 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0122 16.92z" />
-              </svg>
-              โทร 02-123-4567
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
 
     <!-- ═══════════════════════ CONTACT ═══════════════════════ -->
     <section class="section contact-home" id="contact">
       <div class="container">
         <div class="sec-head sec-head--center reveal">
-          <p class="eyebrow">Let's Talk</p>
           <h2>พร้อมเริ่มโปรเจกต์ใหม่กับเรา?</h2>
           <p>บอกเราเรื่องของคุณ ทีมงานพร้อมรับฟังและออกแบบทางออกที่ดีที่สุดสำหรับธุรกิจของคุณ</p>
         </div>
@@ -981,21 +717,21 @@
                   <path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0118 0z" />
                   <circle cx="12" cy="10" r="3" />
                 </svg>
-                <span>123 อาคารเทคโนโลยี ชั้น 8 ถ.สุขุมวิท แขวงคลองตันเหนือ เขตวัฒนา กรุงเทพฯ 10110</span>
+                <span>150 หมู่ที่ 3 ซอย 4 ถนนรังสิต-นครนายก ตำบลประชาธิปัตย์ อำเภอธัญบุรี จ.ปทุมธานี 12130</span>
               </li>
               <li>
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                   <path
                     d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.362 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0122 16.92z" />
                 </svg>
-                <span>02-123-4567 &nbsp;/&nbsp; 081-234-5678</span>
+                <span>082-972-7122</span>
               </li>
               <li>
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                   <path d="M4 4h16a2 2 0 012 2v12a2 2 0 01-2 2H4a2 2 0 01-2-2V6a2 2 0 012-2z" />
                   <path d="M22 6l-10 7L2 6" />
                 </svg>
-                <span>hello@graphictech.co.th</span>
+                <span>graphictech.co.ltd@gmail.com</span>
               </li>
               <li>
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -1006,11 +742,11 @@
               </li>
             </ul>
             <div class="footer__social" style="margin-top:32px">
-              <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor">
+              <a href="https://www.facebook.com/profile.php?id=61574200404276" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor">
                   <path
                     d="M22 12a10 10 0 10-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.77-3.89 1.09 0 2.24.2 2.24.2v2.46H15.2c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.99A10 10 0 0022 12z" />
                 </svg></a>
-              <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              <a href="https://www.instagram.com/graphictech.co.ltd/" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
                   stroke-width="2">
                   <rect x="2" y="2" width="20" height="20" rx="5" />
                   <circle cx="12" cy="12" r="4" />
@@ -1033,17 +769,17 @@
             <div class="form-grid">
               <div class="field">
                 <label for="cfName">ชื่อ-นามสกุล <span class="req">*</span></label>
-                <input type="text" id="cfName" name="name" placeholder="ชื่อของคุณ" required>
+                <input type="text" id="cfName" name="name" placeholder="" required>
                 <p class="field-error">กรุณากรอกชื่อของคุณ</p>
               </div>
               <div class="field">
                 <label for="cfPhone">เบอร์โทรศัพท์ <span class="req">*</span></label>
-                <input type="tel" id="cfPhone" name="phone" placeholder="08x-xxx-xxxx" required>
+                <input type="tel" id="cfPhone" name="phone" placeholder="" required>
                 <p class="field-error">กรุณากรอกเบอร์โทรศัพท์</p>
               </div>
               <div class="field field--full">
                 <label for="cfEmail">อีเมล <span class="req">*</span></label>
-                <input type="email" id="cfEmail" name="email" placeholder="you@example.com" required>
+                <input type="email" id="cfEmail" name="email" placeholder="" required>
                 <p class="field-error">กรุณากรอกอีเมลให้ถูกต้อง</p>
               </div>
               <div class="field field--full">
@@ -1072,185 +808,12 @@
                 <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" />
               </svg>
             </button>
-            <p class="form-note tc mt-40">หรือส่งอีเมลถึงเราโดยตรงที่ <a href="mailto:hello@graphictech.co.th"
-                class="accent">hello@graphictech.co.th</a></p>
+            <p class="form-note tc mt-40">หรือส่งอีเมลถึงเราโดยตรงที่ <a href="mailto:graphictech.co.ltd@gmail.com"
+                class="accent">graphictech.co.ltd@gmail.com</a></p>
           </form>
         </div>
       </div>
     </section>
-
-  </main>
-
-  <!-- ═══════════════════════ FOOTER ═══════════════════════ -->
-  <footer class="footer">
-    <div class="container footer__top">
-      <div class="footer__brand">
-        <a href="#home" class="nav__logo">
-          <span class="nav__logo-mark">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-              stroke-linejoin="round">
-              <path d="M12 2l9 4.9v10.2L12 22l-9-4.9V6.9L12 2z" />
-              <path d="M12 22V12M21 6.9L12 12 3 6.9" />
-            </svg>
-          </span>
-          <span class="nav__logo-text">
-            <b>Graphic<span>TECH</span></b>
-            <small>Creative &amp; Technology Studio</small>
-          </span>
-        </a>
-        <p>เราสร้างสรรค์ เราพัฒนา เราส่งมอบ — พาร์ทเนอร์ด้านดีไซน์และเทคโนโลยีที่ช่วยให้ธุรกิจของคุณเติบโตอย่างมั่นคง
-        </p>
-        <div class="footer__social">
-          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor">
-              <path
-                d="M22 12a10 10 0 10-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.77-3.89 1.09 0 2.24.2 2.24.2v2.46H15.2c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.99A10 10 0 0022 12z" />
-            </svg></a>
-          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
-              stroke-width="2">
-              <rect x="2" y="2" width="20" height="20" rx="5" />
-              <circle cx="12" cy="12" r="4" />
-              <circle cx="17.5" cy="6.5" r="1" />
-            </svg></a>
-          <a href="#" aria-label="LINE"><svg viewBox="0 0 24 24" fill="currentColor">
-              <path
-                d="M12 2C6.48 2 2 5.94 2 10.7c0 4.27 3.56 7.85 8.37 8.55.33.07.77.22.88.5.1.26.07.66.03.92l-.14.9c-.04.26-.2 1.02.9.56 1.1-.47 5.93-3.5 8.09-6 1.5-1.65 2.22-3.32 2.22-5.43C22.35 5.94 17.87 2 12 2z" />
-            </svg></a>
-          <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor">
-              <path
-                d="M23.5 6.2a3 3 0 00-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6a3 3 0 00-2.1 2.1A31 31 0 000 12a31 31 0 00.5 5.8 3 3 0 002.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 002.1-2.1A31 31 0 0024 12a31 31 0 00-.5-5.8zM9.6 15.6V8.4l6.3 3.6-6.3 3.6z" />
-            </svg></a>
-        </div>
-      </div>
-
-      <div class="footer__col">
-        <h4>บริการ</h4>
-        <nav class="footer__links">
-          <a href="#" data-page="service-uiux">UI/UX Design</a>
-          <a href="#" data-page="service-graphic">Graphic Design</a>
-          <a href="#" data-page="service-web">Web Development</a>
-          <a href="#" data-page="service-marketing">Digital Marketing</a>
-          <a href="#" data-page="service-erp">ERP System</a>
-          <a href="#" data-page="service-branding">Branding</a>
-        </nav>
-      </div>
-
-      <div class="footer__col">
-        <h4>บริษัท</h4>
-        <nav class="footer__links">
-          <a href="#" data-page="about">เกี่ยวกับเรา</a>
-          <a href="#portfolio">ผลงานของเรา</a>
-          <a href="#why">ทำไมต้องเรา</a>
-          <a href="#faq">คำถามที่พบบ่อย</a>
-          <a href="#contact">ติดต่อเรา</a>
-        </nav>
-      </div>
-
-      <div class="footer__col">
-        <h4>ติดต่อเรา</h4>
-        <ul class="footer__contact">
-          <li>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0118 0z" />
-              <circle cx="12" cy="10" r="3" />
-            </svg>
-            <span>123 อาคารเทคโนโลยี ชั้น 8 ถ.สุขุมวิท กรุงเทพฯ 10110</span>
-          </li>
-          <li>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path
-                d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.362 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0122 16.92z" />
-            </svg>
-            <a href="tel:021234567">02-123-4567</a>
-          </li>
-          <li>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M4 4h16a2 2 0 012 2v12a2 2 0 01-2 2H4a2 2 0 01-2-2V6a2 2 0 012-2z" />
-              <path d="M22 6l-10 7L2 6" />
-            </svg>
-            <a href="mailto:hello@graphictech.co.th">hello@graphictech.co.th</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="container footer__bottom">
-      <p>© 2026 Graphic TECH. All rights reserved.</p>
-      <nav>
-        <a href="#" data-page="about">เกี่ยวกับเรา</a>
-        <a href="#contact">นโยบายความเป็นส่วนตัว</a>
-        <a href="#contact">ข้อตกลงการใช้งาน</a>
-      </nav>
-    </div>
-  </footer>
-
-  <!-- ═══════════════════════ FLOATING ACTION BUTTONS ═══════════════════════ -->
-  <div class="fab-stack">
-    <a class="to-top" id="toTop" aria-label="กลับขึ้นด้านบน">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
-        <path d="M12 19V5M5 12l7-7 7 7" />
-      </svg>
-    </a>
-    <a class="fab fab--line" href="https://line.me/R/ti/p/@graphictech" target="_blank" rel="noopener"
-      aria-label="แชทผ่าน LINE">
-      <span class="fab__label">แชทผ่าน LINE</span>
-      <svg viewBox="0 0 24 24" fill="currentColor">
-        <path
-          d="M12 2C6.48 2 2 5.94 2 10.7c0 4.27 3.56 7.85 8.37 8.55.33.07.77.22.88.5.1.26.07.66.03.92l-.14.9c-.04.26-.2 1.02.9.56 1.1-.47 5.93-3.5 8.09-6 1.5-1.65 2.22-3.32 2.22-5.43C22.35 5.94 17.87 2 12 2z" />
-      </svg>
-    </a>
-    <a class="fab fab--wa" href="https://wa.me/66812345678" target="_blank" rel="noopener"
-      aria-label="แชทผ่าน WhatsApp">
-      <span class="fab__label">แชทผ่าน WhatsApp</span>
-      <svg viewBox="0 0 24 24" fill="currentColor">
-        <path
-          d="M17.5 14.4c-.3-.15-1.7-.85-2-.94-.27-.1-.46-.15-.66.15-.2.3-.75.94-.92 1.13-.17.2-.34.22-.63.08-.3-.15-1.24-.46-2.36-1.46-.87-.78-1.46-1.73-1.63-2.03-.17-.3-.02-.46.13-.6.13-.14.3-.34.44-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.66-1.6-.91-2.2-.24-.58-.48-.5-.66-.5h-.57c-.2 0-.52.08-.79.37-.27.3-1.04 1-1.04 2.45s1.06 2.85 1.2 3.05c.15.2 2.1 3.2 5.08 4.5.71.3 1.26.49 1.7.62.71.23 1.35.2 1.86.12.57-.08 1.7-.7 1.94-1.36.24-.67.24-1.24.17-1.36-.07-.12-.27-.2-.57-.34z" />
-        <path d="M12 2a10 10 0 00-8.5 15.2L2 22l4.9-1.5A10 10 0 1012 2z" />
-      </svg>
-    </a>
-    <a class="fab fab--phone fab--pulse" href="tel:021234567" aria-label="โทรหาเรา">
-      <span class="fab__label">โทร 02-123-4567</span>
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <path
-          d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.362 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0122 16.92z" />
-      </svg>
-    </a>
-  </div>
-
-  <!-- ═══════════════════════ ADMIN GEAR ═══════════════════════ -->
-  <button class="admin-fab" id="adminFab" aria-label="จัดการระบบและตั้งค่าธีม" aria-expanded="false" title="เปิดเมนูแอดมิน / ตั้งค่าธีม">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <circle cx="12" cy="12" r="3"></circle>
-      <path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-2 2 2 2 0 01-2-2v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83 0 2 2 0 010-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 01-2-2 2 2 0 012-2h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 010-2.83 2 2 0 012.83 0l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 012-2 2 2 0 012 2v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 0 2 2 0 010 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 012 2 2 2 0 01-2 2h-.09a1.65 1.65 0 00-1.51 1z"></path>
-    </svg>
-  </button>
-
-  <div class="admin-panel" id="adminPanel">
-    <!-- ส่วนทางเข้าหน้า Dashboard แอดมิน -->
-    <div class="admin-panel__row">
-      <h5>จัดการหลังบ้าน</h5>
-      <a class="admin-link" href="admin.html" target="_blank"
-        style="background: var(--primary); color: #fff; justify-content: center; font-weight: 600;">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-          style="color: #fff; margin-right: 4px;">
-          <path d="M12 20h9"></path>
-          <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
-        </svg>
-        เข้าสู่ระบบแอดมิน
-      </a>
-    </div>
-
-    <hr style="border: none; border-top: 1px solid var(--line); margin: 16px 0;">
-
-    <!-- ส่วนเปลี่ยนสีธีมเดิม (เก็บไว้เพื่อให้ยังใช้งานฟังก์ชันเดิมได้) -->
-    <div class="admin-panel__row">
-      <h5>โทนสีธีม</h5>
-      <div class="swatches" id="themeSwatches">
-        <span class="swatch is-active" data-swatch="blue" style="background:#2196F3" title="Blue (Default)"></span>
-        <span class="swatch" data-swatch="deep" style="background:#0D47A1" title="Deep Blue"></span>
-        <span class="swatch" data-swatch="sky" style="background:#90CAF9" title="Sky"></span>
-      </div>
-    </div>
-  </div>
 
   <!-- ═══════════════════════ OVERLAY PANEL ═══════════════════════ -->
   <div class="overlay" id="overlay" aria-hidden="true" role="dialog" aria-modal="true">
@@ -1269,15 +832,13 @@
       </div>
     </div>
   </div>
+@endsection
 
+@section('extra_scripts')
   <script src="{{ asset('js/api-store.js') }}"></script>
   <script src="{{ asset('js/data-portfolio.js') }}"></script>
-  <script src="{{ asset('js/detail.js') }}"></script>
   <script src="{{ asset('js/counters.js') }}"></script>
   <script src="{{ asset('js/testimonials.js') }}"></script>
   <script src="{{ asset('js/faq.js') }}"></script>
   <script src="{{ asset('js/contact-form.js') }}"></script>
-  <script src="{{ asset('js/main.js') }}"></script>
-</body>
-
-</html>
+@endsection

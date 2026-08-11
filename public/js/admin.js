@@ -22,22 +22,10 @@ document.addEventListener("DOMContentLoaded", function () {
   /* Modals */
   const portfolioModal = document.getElementById("portfolioModal");
   const portfolioForm = document.getElementById("portfolioForm");
-  const messageModal = document.getElementById("messageModal");
-
-  /* --- 1. AUTHENTICATION & GUARD --- */
+  const messageModal = document.getElementById("messageModal");  /* --- 1. AUTHENTICATION & GUARD --- */
   function checkAuth() {
-    if (window.GTStore && window.GTStore.isLoggedIn()) {
-      loginScreen.style.display = "none";
-      dashboardScreen.style.display = "flex";
-      const user = window.GTStore.getAdminUser();
-      if (adminNameHeading && user) {
-        adminNameHeading.textContent = `ยินดีต้อนรับ, แอดมิน ${user}`;
-      }
-      renderDashboard();
-    } else {
-      loginScreen.style.display = "flex";
-      dashboardScreen.style.display = "none";
-    }
+    // โค้ดส่วนนี้ถูกลบออกไปทำงานฝั่งเซิร์ฟเวอร์ (Laravel) แทน
+    // หากเข้าหน้าเว็บแล้วจะขึ้นกับ Session อย่างเดียว
   }
 
   if (loginForm) {
@@ -45,30 +33,56 @@ document.addEventListener("DOMContentLoaded", function () {
       e.preventDefault();
       const user = document.getElementById("username").value.trim();
       const pass = document.getElementById("password").value.trim();
+      const token = document.querySelector('meta[name="csrf-token"]')?.getAttribute('content');
 
-      const res = window.GTStore.login(user, pass);
-      if (res.success) {
-        if (loginError) loginError.style.display = "none";
-        showToast("เข้าสู่ระบบสำเร็จ!", "success");
-        checkAuth();
-      } else {
-        if (loginError) {
-          loginError.textContent = res.message;
-          loginError.style.display = "block";
-        }
-      }
+      fetch('/admin/login', {
+          method: 'POST',
+          headers: {
+              'Content-Type': 'application/json',
+              'X-CSRF-TOKEN': token || ''
+          },
+          body: JSON.stringify({ username: user, password: pass })
+      })
+      .then(response => response.json())
+      .then(res => {
+          if (res.success) {
+              if (loginError) loginError.style.display = "none";
+              showToast("เข้าสู่ระบบสำเร็จ!", "success");
+              // Reload page to enter dashboard
+              window.location.reload();
+          } else {
+              if (loginError) {
+                  loginError.textContent = res.message || 'ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง';
+                  loginError.style.display = "block";
+              }
+          }
+      })
+      .catch(err => {
+          console.error(err);
+          if (loginError) {
+              loginError.textContent = 'เกิดข้อผิดพลาดในการเชื่อมต่อ';
+              loginError.style.display = "block";
+          }
+      });
     });
   }
 
   if (logoutBtn) {
     logoutBtn.addEventListener("click", function () {
       if (confirm("คุณต้องการออกจากระบบใช่หรือไม่?")) {
-        window.GTStore.logout();
-        showToast("ออกจากระบบเรียบร้อยแล้ว", "info");
-        checkAuth();
+          const token = document.querySelector('meta[name="csrf-token"]')?.getAttribute('content');
+          fetch('/admin/logout', {
+              method: 'POST',
+              headers: {
+                  'Content-Type': 'application/json',
+                  'X-CSRF-TOKEN': token || ''
+              }
+          }).then(() => {
+              window.location.reload();
+          });
       }
     });
-  }
+  };
 
   /* --- 2. TAB SWITCHER --- */
   sidebarLinks.forEach(link => {
@@ -151,7 +165,7 @@ document.addEventListener("DOMContentLoaded", function () {
               <span class="badge ${msg.read ? 'badge-secondary' : 'badge-danger'}">${msg.read ? 'อ่านแล้ว' : 'ใหม่'}</span>
               <p class="msg-subject" style="font-size: 0.85rem; color: var(--ink); margin-top: 2px;">${escapeHtml(msg.subject)}</p>
             </div>
-            <small class="msg-time" style="color: var(--body); font-size: 0.75rem;">${formatDate(msg.createdAt)}</small>
+            <small class="msg-time" style="color: var(--body); font-size: 0.75rem;">${formatDate(msg.created_at || msg.createdAt)}</small>
           </div>
         `).join("");
       }
@@ -493,7 +507,7 @@ document.addEventListener("DOMContentLoaded", function () {
       <tr class="${msg.read ? 'read-row' : 'unread-row'}">
         <td>
           <span class="status-dot ${msg.read ? 'dot-read' : 'dot-unread'}"></span>
-          ${formatDate(msg.createdAt)}
+          ${formatDate(msg.created_at || msg.createdAt)}
         </td>
         <td>
           <strong>${escapeHtml(msg.name)}</strong>
@@ -528,7 +542,7 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("msgDetailPhone").textContent = msg.phone;
     document.getElementById("msgDetailService").textContent = msg.service;
     document.getElementById("msgDetailSubject").textContent = msg.subject;
-    document.getElementById("msgDetailDate").textContent = formatDate(msg.createdAt);
+    document.getElementById("msgDetailDate").textContent = formatDate(msg.created_at || msg.createdAt);
     document.getElementById("msgDetailBody").textContent = msg.message;
 
     if (messageModal) messageModal.classList.add("is-open");
@@ -618,4 +632,191 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   checkAuth();
+});
+
+
+// --- SERVICE POSTERS & PORTFOLIOS LOGIC ---
+document.addEventListener("DOMContentLoaded", function() {
+    const addSvcPosterBtn = document.getElementById("addSvcPosterBtn");
+    const servicePosterModal = document.getElementById("servicePosterModal");
+    const servicePosterForm = document.getElementById("servicePosterForm");
+    
+    if (addSvcPosterBtn && servicePosterModal) {
+        addSvcPosterBtn.addEventListener("click", () => {
+            servicePosterForm.reset();
+            document.getElementById("svcPosterId").value = "";
+            document.getElementById("servicePosterModalTitle").textContent = "เพิ่มโปสเตอร์บริการ";
+            document.getElementById("svcPosterPreviewImg").style.display = "none";
+            document.getElementById("svcPosterImgUrl").value = "";
+            servicePosterModal.classList.add("is-open");
+        });
+    }
+
+    const svcPosterFile = document.getElementById("svcPosterFile");
+    const svcPosterPreviewImg = document.getElementById("svcPosterPreviewImg");
+    const svcPosterImgUrl = document.getElementById("svcPosterImgUrl");
+
+    if (svcPosterFile) {
+        svcPosterFile.addEventListener("change", function(e) {
+            if (e.target.files && e.target.files[0]) {
+                const reader = new FileReader();
+                reader.onload = function(evt) {
+                    svcPosterPreviewImg.src = evt.target.result;
+                    svcPosterPreviewImg.style.display = "block";
+                    svcPosterImgUrl.value = evt.target.result;
+                };
+                reader.readAsDataURL(e.target.files[0]);
+            }
+        });
+    }
+
+    if (servicePosterForm) {
+        servicePosterForm.addEventListener("submit", function(e) {
+            e.preventDefault();
+            const id = document.getElementById("svcPosterId").value;
+            const title = document.getElementById("svcPosterTitle").value;
+            const subtitle = document.getElementById("svcPosterSubtitle").value;
+            const category = document.getElementById("svcSlugSelect").value;
+            const image = document.getElementById("svcPosterImgUrl").value;
+            
+            if (id) {
+                window.GTStore.updateServicePoster(id, { title, subtitle, category, image });
+                showToast("แก้ไขโปสเตอร์เรียบร้อยแล้ว!", "success");
+            } else {
+                window.GTStore.addServicePoster({ title, subtitle, category, image });
+                showToast("เพิ่มโปสเตอร์ใหม่เรียบร้อยแล้ว!", "success");
+            }
+            servicePosterModal.classList.remove("is-open");
+            renderDashboard(); // Re-render logic needed for services
+        });
+    }
+    
+    // Wire up delete and edit buttons dynamically
+    window.editSvcPoster = function(id) {
+        const item = window.GTStore.state.posters.find(p => p.id === id);
+        if (item) {
+            document.getElementById("svcPosterId").value = item.id;
+            document.getElementById("svcPosterTitle").value = item.title;
+            document.getElementById("svcPosterSubtitle").value = item.subtitle;
+            document.getElementById("svcPosterImgUrl").value = item.image;
+            if(item.image) {
+                svcPosterPreviewImg.src = item.image;
+                svcPosterPreviewImg.style.display = "block";
+            } else {
+                svcPosterPreviewImg.style.display = "none";
+            }
+            document.getElementById("servicePosterModalTitle").textContent = "แก้ไขโปสเตอร์บริการ";
+            servicePosterModal.classList.add("is-open");
+        }
+    };
+    
+    window.deleteSvcPoster = function(id) {
+        if(confirm("ยืนยันการลบโปสเตอร์นี้?")) {
+            window.GTStore.deleteServicePoster(id);
+            showToast("ลบโปสเตอร์เรียบร้อยแล้ว!", "success");
+            renderDashboard();
+        }
+    };
+
+    // Make sure renderDashboard logic updates the specific service views
+    const originalRenderDashboard = window.renderDashboard;
+    window.renderDashboard = function() {
+        if (typeof originalRenderDashboard === 'function') originalRenderDashboard();
+        
+        // Custom logic to update the Services tab specifically based on svcSlugSelect
+        const svcSlugSelect = document.getElementById("svcSlugSelect");
+        if (svcSlugSelect) {
+            const currentSlug = svcSlugSelect.value;
+            
+            // Render Posters for this service
+            const posterGrid = document.getElementById("svcPosterGrid");
+            const emptyPoster = document.getElementById("svcPosterEmpty");
+            const badgePoster = document.getElementById("svcPosterCountBadge");
+            if (posterGrid) {
+                const servicePosters = window.GTStore.state.posters.filter(p => p.category === currentSlug);
+                if (badgePoster) badgePoster.textContent = servicePosters.length + " รายการ";
+                
+                if (servicePosters.length === 0) {
+                    posterGrid.innerHTML = '<p id="svcPosterEmpty" style="color:var(--body);opacity:.5;grid-column:1/-1;text-align:center;padding:32px 0;">ยังไม่มีข้อมูลโปสเตอร์ในบริการนี้</p>';
+                } else {
+                    posterGrid.innerHTML = '';
+                    servicePosters.forEach(p => {
+                        posterGrid.innerHTML += `
+                            <div class="card" style="padding:10px;text-align:center;">
+                                <img src="${p.image}" style="width:100%;height:120px;object-fit:cover;border-radius:8px;margin-bottom:10px;">
+                                <h4 style="font-size:0.9rem;margin-bottom:5px;">${p.title || 'Untitled'}</h4>
+                                <div style="display:flex;gap:5px;justify-content:center;">
+                                    <button class="btn btn-outline" style="padding:4px 8px;font-size:0.8rem;" onclick="editSvcPoster('${p.id}')">แก้ไข</button>
+                                    <button class="btn btn-danger" style="padding:4px 8px;font-size:0.8rem;" onclick="deleteSvcPoster('${p.id}')">ลบ</button>
+                                </div>
+                            </div>
+                        `;
+                    });
+                }
+            }
+            
+            // Render Portfolios for this service
+            const portTable = document.getElementById("svcPortTableBody");
+            const badgePort = document.getElementById("svcPortCountBadge");
+            if (portTable) {
+                const servicePorts = window.GTStore.state.portfolios.filter(p => p.category === currentSlug);
+                if (badgePort) badgePort.textContent = servicePorts.length + " รายการ";
+                
+                if (servicePorts.length === 0) {
+                    portTable.innerHTML = '<tr><td colspan="5" style="text-align:center;color:var(--body);opacity:.5;padding:32px 0;">ยังไม่มีข้อมูลผลงาน</td></tr>';
+                } else {
+                    portTable.innerHTML = '';
+                    servicePorts.forEach(p => {
+                        portTable.innerHTML += `
+                            <tr>
+                                <td>
+                                    <div style="display:flex;align-items:center;gap:12px;">
+                                        <img src="${p.image}" style="width:40px;height:40px;border-radius:4px;object-fit:cover;">
+                                        <div>
+                                            <div style="font-weight:600;color:var(--ink);"></div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>${p.category}</td>
+                                <td>${p.year}</td>
+                                <td>
+                                    <span class="badge badge-success">Active</span>
+                                </td>
+                                <td class="text-right">
+                                    <div class="action-btns">
+                                        <button class="btn-icon" title="แก้ไข" onclick="openEditPortfolioModal('${p.id}')">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
+                                        </button>
+                                        <button class="btn-icon" title="ลบ" onclick="deletePortfolio('${p.id}')" style="color:var(--danger);">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6m3 0V4a2 2 0 012-2h4a2 2 0 012 2v2"></path></svg>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                        `;
+                    });
+                }
+            }
+        }
+    };
+
+    const svcSlugSelect = document.getElementById("svcSlugSelect");
+    if (svcSlugSelect) {
+        svcSlugSelect.addEventListener("change", window.renderDashboard);
+    }
+    
+    // Add Portfolio from Service Tab button
+    const addSvcPortBtn = document.getElementById("addSvcPortBtn");
+    if (addSvcPortBtn) {
+        addSvcPortBtn.addEventListener("click", () => {
+            const category = document.getElementById("svcSlugSelect").value;
+            // Pre-fill category in portfolio modal
+            document.getElementById("portfolioForm").reset();
+            document.getElementById("portCategory").value = category;
+            document.getElementById("modalPortfolioTitle").textContent = "เพิ่มผลงานใหม่";
+            document.getElementById("portPreviewImg").style.display = "none";
+            document.getElementById("portImgUrl").value = "";
+            document.getElementById("portfolioModal").classList.add("is-open");
+        });
+    }
 });

@@ -193,10 +193,22 @@
 
     init: function () {
       if (!localStorage.getItem(STORAGE_KEYS.SETTINGS)) setStorage(STORAGE_KEYS.SETTINGS, DEFAULT_SETTINGS);
-      if (!localStorage.getItem(STORAGE_KEYS.PORTFOLIO)) setStorage(STORAGE_KEYS.PORTFOLIO, DEFAULT_PORTFOLIO);
-      if (!localStorage.getItem(STORAGE_KEYS.BANNERS)) setStorage(STORAGE_KEYS.BANNERS, DEFAULT_BANNERS);
       if (!localStorage.getItem(STORAGE_KEYS.TESTIMONIALS)) setStorage(STORAGE_KEYS.TESTIMONIALS, DEFAULT_TESTIMONIALS);
       if (!localStorage.getItem(STORAGE_KEYS.MESSAGES)) setStorage(STORAGE_KEYS.MESSAGES, DEFAULT_MESSAGES);
+      
+      this.state = this.state || {};
+      // Load from Backend initial state if available
+      if (window.GTInitialState) {
+          this.state.portfolios = window.GTInitialState.portfolios || [];
+          this.state.banners = window.GTInitialState.banners || [];
+          this.state.posters = window.GTInitialState.posters || [];
+          this.state.messages = window.GTInitialState.messages || [];
+      } else {
+          this.state.portfolios = getStorage(STORAGE_KEYS.PORTFOLIO, DEFAULT_PORTFOLIO);
+          this.state.banners = getStorage(STORAGE_KEYS.BANNERS, DEFAULT_BANNERS);
+          this.state.posters = getStorage('gt_posters', []);
+          this.state.messages = getStorage(STORAGE_KEYS.MESSAGES, DEFAULT_MESSAGES);
+      }
     },
 
     makePlaceholderImage: makePlaceholderImage,
@@ -226,20 +238,16 @@
     /* PORTFOLIO */
     getPortfolio: function () { return getStorage(STORAGE_KEYS.PORTFOLIO, DEFAULT_PORTFOLIO); },
     addPortfolio: function (item) {
-      const items = this.getPortfolio();
-      const newItem = {
-        id: "item-" + Date.now(),
-        title: item.title || "ผลงานใหม่",
-        category: item.category || "Web Development",
-        image: item.image || makePlaceholderImage(item.title || "ผลงานใหม่", item.category || "Web Development"),
-        tags: Array.isArray(item.tags) ? item.tags : (item.tags || "").split(",").map(t => t.trim()).filter(Boolean),
-        year: item.year ? parseInt(item.year, 10) : new Date().getFullYear(),
-        description: item.description || "",
-        createdAt: new Date().toISOString(),
-      };
-      items.unshift(newItem);
-      setStorage(STORAGE_KEYS.PORTFOLIO, items);
-      return newItem;
+      item.id = "port-" + Date.now();
+      item.createdAt = new Date().toISOString();
+      this.state.portfolios.unshift(item);
+      
+      const token = document.querySelector('meta[name="csrf-token"]')?.getAttribute('content');
+      fetch('/admin/api/portfolios/save', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'X-CSRF-TOKEN': token || '' },
+          body: JSON.stringify(item)
+      });
     },
 
     updatePortfolio: function (id, updatedData) {
@@ -263,10 +271,13 @@
     },
 
     deletePortfolio: function (id) {
-      let items = this.getPortfolio();
-      items = items.filter(item => item.id !== id);
-      setStorage(STORAGE_KEYS.PORTFOLIO, items);
-      return true;
+      this.state.portfolios = this.state.portfolios.filter(i => i.id !== id);
+      const token = document.querySelector('meta[name="csrf-token"]')?.getAttribute('content');
+      fetch('/admin/api/portfolios/delete', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'X-CSRF-TOKEN': token || '' },
+          body: JSON.stringify({id: id})
+      });
     },
 
     /* BANNERS */
@@ -288,10 +299,44 @@
     },
 
     deleteBanner: function (id) {
-      let banners = this.getBanners();
-      banners = banners.filter(b => b.id !== id);
-      setStorage(STORAGE_KEYS.BANNERS, banners);
-      return true;
+      this.state.banners = this.state.banners.filter(i => i.id !== id);
+      const token = document.querySelector('meta[name="csrf-token"]')?.getAttribute('content');
+      fetch('/admin/api/banners/delete', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'X-CSRF-TOKEN': token || '' },
+          body: JSON.stringify({id: id})
+      });
+    },
+    addServicePoster: function(item) {
+        item.id = "poster-" + Date.now();
+        this.state.posters.unshift(item);
+        const token = document.querySelector('meta[name="csrf-token"]')?.getAttribute('content');
+        fetch('/admin/api/service-posters/save', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'X-CSRF-TOKEN': token || '' },
+            body: JSON.stringify(item)
+        });
+    },
+    updateServicePoster: function(id, updates) {
+        const idx = this.state.posters.findIndex(i => i.id === id);
+        if (idx !== -1) {
+            this.state.posters[idx] = { ...this.state.posters[idx], ...updates };
+            const token = document.querySelector('meta[name="csrf-token"]')?.getAttribute('content');
+            fetch('/admin/api/service-posters/save', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json', 'X-CSRF-TOKEN': token || '' },
+                body: JSON.stringify(this.state.posters[idx])
+            });
+        }
+    },
+    deleteServicePoster: function(id) {
+        this.state.posters = this.state.posters.filter(i => i.id !== id);
+        const token = document.querySelector('meta[name="csrf-token"]')?.getAttribute('content');
+        fetch('/admin/api/service-posters/delete', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'X-CSRF-TOKEN': token || '' },
+            body: JSON.stringify({id: id})
+        });
     },
 
     toggleBannerStatus: function (id) {
@@ -330,37 +375,34 @@
     },
 
     /* MESSAGES */
-    getMessages: function () { return getStorage(STORAGE_KEYS.MESSAGES, DEFAULT_MESSAGES); },
+    getMessages: function () { 
+      return this.state.messages || []; 
+    },
     addMessage: function (msgData) {
-      const messages = this.getMessages();
-      const newMsg = {
-        id: "msg-" + Date.now(),
-        name: msgData.name || "ผู้ติดต่อ",
-        email: msgData.email || "-",
-        phone: msgData.phone || "-",
-        service: msgData.service || "สอบถามทั่วไป",
-        subject: msgData.subject || "ติดต่อจากหน้าเว็บไซต์",
-        message: msgData.message || "",
-        read: false,
-        createdAt: new Date().toISOString(),
-      };
-      messages.unshift(newMsg);
-      setStorage(STORAGE_KEYS.MESSAGES, messages);
-      return newMsg;
+      // Handled by contact-form.js via direct API call, but we keep this just in case
+      return null;
     },
     markMessageRead: function (id, status = true) {
-      let messages = this.getMessages();
-      const msg = messages.find(m => m.id === id);
+      const msg = this.state.messages.find(m => m.id === id);
       if (msg) {
         msg.read = status;
-        setStorage(STORAGE_KEYS.MESSAGES, messages);
+        const token = document.querySelector('meta[name="csrf-token"]')?.getAttribute('content');
+        fetch('/admin/api/messages/read', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'X-CSRF-TOKEN': token || '' },
+            body: JSON.stringify({id: id})
+        });
       }
       return msg;
     },
     deleteMessage: function (id) {
-      let messages = this.getMessages();
-      messages = messages.filter(m => m.id !== id);
-      setStorage(STORAGE_KEYS.MESSAGES, messages);
+      this.state.messages = this.state.messages.filter(m => m.id !== id);
+      const token = document.querySelector('meta[name="csrf-token"]')?.getAttribute('content');
+      fetch('/admin/api/messages/delete', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'X-CSRF-TOKEN': token || '' },
+          body: JSON.stringify({id: id})
+      });
       return true;
     },
 

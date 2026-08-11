@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Admin Dashboard | Graphic TECH</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap">
@@ -92,7 +93,7 @@
 
         /* ═════════ DASHBOARD LAYOUT ═════════ */
         #dashboardScreen {
-            display: none;
+            display: flex;
             min-height: 100vh;
             flex-direction: row;
         }
@@ -717,6 +718,7 @@
 <body>
 
     <!-- ═════════ 1. LOGIN SCREEN ═════════ -->
+    @if(!session('admin_user'))
     <div id="loginScreen">
         <div class="login-card">
             <h2>Graphic<span>TECH</span> Admin</h2>
@@ -740,12 +742,13 @@
                 </div>
                 <button type="submit" class="btn btn-primary btn-block">เข้าสู่ระบบหลังบ้าน</button>
             </form>
-            <a href="index.html" style="display: inline-block; margin-top: 20px; font-size: 0.85rem; color: var(--primary); text-decoration: none;">
+            <a href="{{ route('home') }}" style="display: inline-block; margin-top: 20px; font-size: 0.85rem; color: var(--primary); text-decoration: none;">
                 &larr; กลับไปหน้าเว็บไซต์หลัก
             </a>
         </div>
     </div>
 
+    @else
     <!-- ═════════ 2. DASHBOARD SCREEN ═════════ -->
     <div id="dashboardScreen">
 
@@ -766,15 +769,31 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#" data-tab="portfolio">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 19a2 2 0 01-2 2H4a2 2 0 01-2-2V5a2 2 0 012-2h5l2 3h9a2 2 0 012 2z"/></svg>
-                        จัดการผลงาน (Portfolio)
+                    <a href="#" data-tab="posters">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="3" width="18" height="18" rx="2" />
+                            <circle cx="8.5" cy="8.5" r="1.5" />
+                            <polyline points="21 15 16 10 5 21" />
+                        </svg>
+                        การ์ดผลงาน (Posters)
                     </a>
                 </li>
                 <li>
                     <a href="#" data-tab="banners">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
                         จัดการแบนเนอร์ (Banners)
+                    </a>
+                </li>
+                <li>
+                    <a href="#" data-tab="services">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+                        จัดการหน้าบริการ (Services)
+                    </a>
+                </li>
+                <li>
+                    <a href="#" data-tab="portfolio">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 19a2 2 0 01-2 2H4a2 2 0 01-2-2V5a2 2 0 012-2h5l2 3h9a2 2 0 012 2z"/></svg>
+                        จัดการผลงาน (Portfolio)
                     </a>
                 </li>
                 <li>
@@ -793,12 +812,6 @@
                     <a href="#" data-tab="settings">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-2 2 2 2 0 01-2-2v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83 0 2 2 0 010-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 01-2-2 2 2 0 012-2h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 010-2.83 2 2 0 012.83 0l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 012-2 2 2 0 012 2v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 0 2 2 0 010 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 012 2 2 2 0 01-2 2h-.09a1.65 1.65 0 00-1.51 1z"/></svg>
                         ตั้งค่าระบบ (Settings)
-                    </a>
-                </li>
-                <li style="margin-top: auto; border-top: 1px solid rgba(255,255,255,0.1);">
-                    <a href="index.html" target="_blank">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                        ดูหน้าเว็บไซต์จริง &nearr;
                     </a>
                 </li>
             </ul>
@@ -877,7 +890,64 @@
                     </div>
                 </div>
 
+                <!-- ════ TAB: SERVICES ════ -->
+                <div class="tab-pane" id="tab-services">
+                    <!-- Service Selector -->
+                    <div class="card" style="margin-bottom:20px;">
+                        <div class="card-header-flex">
+                            <h3>จัดการเนื้อหาหน้าบริการ</h3>
+                        </div>
+                        <div class="form-group" style="max-width:360px;">
+                            <label>เลือกหน้าบริการที่ต้องการจัดการ</label>
+                            <select id="svcSlugSelect" style="width:100%;padding:10px 12px;border:1px solid var(--line);border-radius:8px;font-size:.95rem;background:#fff;cursor:pointer;">
+                                <option value="service-uiux">UI/UX Design</option>
+                                <option value="service-graphic">Graphic Design</option>
+                                <option value="service-web">Web Development</option>
+                                <option value="service-marketing">Digital Marketing</option>
+                                <option value="service-erp">ERP System</option>
+                                <option value="service-branding">Branding</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Posters Section -->
+                    <div class="card" style="margin-bottom:20px;">
+                        <div class="card-header-flex">
+                            <h3>โปสเตอร์โปรโมท <span class="badge badge-info" id="svcPosterCountBadge">0 รายการ</span></h3>
+                            <button class="btn btn-primary" id="addSvcPosterBtn">+ เพิ่มโปสเตอร์</button>
+                        </div>
+                        <div id="svcPosterGrid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:16px;margin-top:16px;">
+                            <p id="svcPosterEmpty" style="color:var(--body);opacity:.5;grid-column:1/-1;text-align:center;padding:32px 0;">ยังไม่มีโปสเตอร์ในหน้าบริการนี้</p>
+                        </div>
+                    </div>
+
+                    <!-- Portfolio Section -->
+                    <div class="card">
+                        <div class="card-header-flex">
+                            <h3>ผลงาน (Portfolio) <span class="badge badge-info" id="svcPortCountBadge">0 รายการ</span></h3>
+                            <button class="btn btn-primary" id="addSvcPortBtn">+ เพิ่มผลงาน</button>
+                        </div>
+                        <div class="table-responsive" style="margin-top:16px;">
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>รูปตัวอย่าง</th>
+                                        <th>ชื่อผลงาน</th>
+                                        <th>แท็ก</th>
+                                        <th>ปี</th>
+                                        <th class="text-right">การจัดการ</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="svcPortTableBody">
+                                    <tr><td colspan="5" style="text-align:center;color:var(--body);opacity:.5;padding:32px 0;">ยังไม่มีผลงาน</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
                 <!-- ════ TAB 3: BANNERS ════ -->
+
                 <div class="tab-pane" id="tab-banners">
                     <div class="card">
                         <h3>เพิ่มแบนเนอร์สไลด์ใหม่ (Add Home Slide)</h3>
@@ -1008,7 +1078,50 @@
                     </div>
                 </div>
 
+            </div>            <!-- POSTERS TAB -->
+            <div class="tab-pane" id="posters">
+                <div class="header-actions">
+                    <h2>จัดการการ์ดผลงาน (Posters) หน้าแรก</h2>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <p style="margin-bottom: 20px;">แก้ไขข้อมูลการ์ดที่ลอยอยู่ในส่วน Hero ของหน้าแรก (มี 3 ใบ)</p>
+                        <form action="{{ route('admin.posters.update') }}" method="POST" enctype="multipart/form-data">
+                            @csrf
+                            <div class="grid grid-3" style="gap: 20px; display: grid; grid-template-columns: repeat(3, 1fr);">
+                                @foreach($posters as $poster)
+                                <div style="border: 1px solid var(--line); padding: 15px; border-radius: var(--r-sm);">
+                                    <h4>การ์ดใบที่ {{ $loop->iteration }}</h4>
+                                    <div class="form-group" style="margin-top: 15px;">
+                                        <label>รูปภาพปัจจุบัน</label>
+                                        @if($poster->image)
+                                            <div style="margin-bottom: 10px;">
+                                                <img src="{{ asset($poster->image) }}" alt="Poster" style="max-width: 100%; height: 120px; object-fit: cover; border-radius: 4px;">
+                                            </div>
+                                        @else
+                                            <p style="color: #888; font-size: 0.9em; margin-bottom: 10px;">(ยังไม่มีรูปภาพ ใช้ไอคอนเริ่มต้น)</p>
+                                        @endif
+                                        <input type="file" name="posters[{{ $poster->id }}][image]" class="form-control" accept="image/*">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>ชื่อผลงาน (Title)</label>
+                                        <input type="text" name="posters[{{ $poster->id }}][title]" class="form-control" value="{{ $poster->title }}" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>รายละเอียด (Subtitle)</label>
+                                        <input type="text" name="posters[{{ $poster->id }}][subtitle]" class="form-control" value="{{ $poster->subtitle }}" required>
+                                    </div>
+                                </div>
+                                @endforeach
+                            </div>
+                            <div style="margin-top: 20px; text-align: right;">
+                                <button type="submit" class="btn btn-primary">บันทึกการเปลี่ยนแปลงทั้งหมด</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
+            
         </main>
     </div>
 
@@ -1098,12 +1211,103 @@
         </div>
     </div>
 
+    <!-- ════ SERVICES TAB CONTENT ════ -->
+    <!-- (inserted into content-area via JS, defined below as template) -->
+
+    <!-- Service Poster Modal -->
+    <div class="modal" id="servicePosterModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="servicePosterModalTitle">เพิ่มโปสเตอร์บริการ</h3>
+                <button class="close-modal">&times;</button>
+            </div>
+            <form id="servicePosterForm">
+                <input type="hidden" id="svcPosterSlug">
+                <input type="hidden" id="svcPosterId">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label>ชื่อโปสเตอร์ *</label>
+                        <input type="text" id="svcPosterTitle" placeholder="เช่น โปสเตอร์โปรโมชั่น Q3 2024" required>
+                    </div>
+                    <div class="form-group">
+                        <label>รายละเอียดสั้นๆ</label>
+                        <input type="text" id="svcPosterDesc" placeholder="คำอธิบายเพิ่มเติม (ไม่บังคับ)">
+                    </div>
+                    <div class="form-group">
+                        <label>อัปโหลดรูปโปสเตอร์ หรือใส่ URL</label>
+                        <input type="file" id="svcPosterFile" accept="image/*" style="margin-bottom:8px;">
+                        <input type="text" id="svcPosterUrl" placeholder="หรือวางลิงก์รูปภาพ (http://...)">
+                        <img id="svcPosterPreview" src="" alt="Preview" style="max-height:140px;border-radius:8px;display:none;margin-top:10px;object-fit:cover;">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline close-modal">ยกเลิก</button>
+                    <button type="submit" class="btn btn-primary">บันทึกโปสเตอร์</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Service Portfolio Modal -->
+    <div class="modal" id="servicePortfolioModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="svcPortModalTitle">เพิ่มผลงาน</h3>
+                <button class="close-modal">&times;</button>
+            </div>
+            <form id="servicePortfolioForm">
+                <input type="hidden" id="svcPortSlug">
+                <input type="hidden" id="svcPortId">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label>ชื่อผลงาน *</label>
+                        <input type="text" id="svcPortTitle" placeholder="ชื่อโปรเจกต์" required>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>แท็ก (คั่นด้วย ,)</label>
+                            <input type="text" id="svcPortTags" placeholder="เช่น Logo, Branding, Print">
+                        </div>
+                        <div class="form-group">
+                            <label>ปีที่ทำ</label>
+                            <input type="number" id="svcPortYear" value="2024">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>รายละเอียด</label>
+                        <textarea id="svcPortDesc" placeholder="อธิบายงานสั้นๆ"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>อัปโหลดรูปภาพผลงาน หรือใส่ URL</label>
+                        <input type="file" id="svcPortFile" accept="image/*" style="margin-bottom:8px;">
+                        <input type="text" id="svcPortUrl" placeholder="หรือวางลิงก์รูปภาพ (http://...)">
+                        <img id="svcPortPreview" src="" alt="Preview" style="max-height:120px;border-radius:6px;display:none;margin-top:10px;object-fit:cover;">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline close-modal">ยกเลิก</button>
+                    <button type="submit" class="btn btn-primary">บันทึกผลงาน</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    @endif
     <!-- Toast Notifications Container -->
     <div id="toastContainer"></div>
 
+    <!-- INITIAL STATE FROM BACKEND -->
+    <script>
+        window.GTInitialState = {
+            portfolios: {!! isset($portfolios) ? $portfolios->toJson() : '[]' !!},
+            banners: {!! isset($banners) ? $banners->toJson() : '[]' !!},
+            posters: {!! isset($posters) ? $posters->toJson() : '[]' !!},
+            messages: {!! isset($messages) ? $messages->toJson() : '[]' !!}
+        };
+    </script>
+
     <!-- SCRIPTS -->
-    <script src="js/api-store.js"></script>
-    <script src="js/admin.js"></script>
+    <script src="{{ asset('js/api-store.js') }}"></script>
+    <script src="{{ asset('js/admin.js') }}"></script>
 </body>
 
 </html>
