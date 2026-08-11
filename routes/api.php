@@ -1,11 +1,18 @@
 <?php
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Models\Portfolio;
 use App\Models\Banner;
 use App\Models\Testimonial;
-use App\Models\Message;
+
+/*
+|--------------------------------------------------------------------------
+| Public read-only API
+|--------------------------------------------------------------------------
+| Contact form submission lives on the "web" middleware group instead
+| (routes/web.php: messages.store) since it's a same-origin HTML form
+| and needs CSRF + session, not a stateless API guard.
+*/
 
 Route::get('/portfolio', function () {
     return response()->json(Portfolio::latest()->get());
@@ -17,18 +24,4 @@ Route::get('/banners', function () {
 
 Route::get('/testimonials', function () {
     return response()->json(Testimonial::latest()->get());
-});
-
-Route::post('/messages', function (Request $request) {
-    $msg = Message::create([
-        'name' => $request->input('name', 'ผู้ติดต่อ'),
-        'email' => $request->input('email', '-'),
-        'phone' => $request->input('phone', '-'),
-        'service' => $request->input('service', 'สอบถามทั่วไป'),
-        'subject' => $request->input('subject', 'ติดต่อจากหน้าเว็บไซต์'),
-        'message' => $request->input('message', ''),
-        'read' => false,
-    ]);
-
-    return response()->json(['success' => true, 'data' => $msg], 201);
 });

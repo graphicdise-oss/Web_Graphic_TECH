@@ -1,18 +1,15 @@
 /* ============================================================
    CONTACT-FORM.JS — Graphic TECH
-   Client-side validation + submit feedback for #contactForm.
-
-   NOTE: This form has no backend endpoint wired up yet. On
-   successful validation it shows a success message and resets
-   the form. To go live, replace the TODO block below with a
-   fetch() call to your form-handling endpoint / email service
-   (e.g. Formspree, a serverless function, or your own API).
+   Client-side validation + AJAX submit for #contactForm.
+   Posts to the form's own `action` (routes/web.php: messages.store)
+   with the CSRF token from the page's meta tag. Falls back to a
+   normal full-page POST if fetch/JS is unavailable.
    ============================================================ */
 
 (function () {
   'use strict';
 
-  const form    = document.getElementById('contactForm');
+  const form = document.getElementById('contactForm');
   if (!form) return;
   const success = document.getElementById('formSuccess');
 
@@ -50,16 +47,8 @@
       return;
     }
 
-    /* Save Message to Central Store & Backend */
-    const formData = new FormData(form);
-    const msgPayload = {
-      name: formData.get('name') || document.getElementById('cf-name')?.value || 'ผู้ติดต่อ',
-      email: formData.get('email') || document.getElementById('cf-email')?.value || '-',
-      phone: formData.get('phone') || document.getElementById('cf-phone')?.value || '-',
-      service: formData.get('service') || document.getElementById('cf-service')?.value || 'สอบถามทั่วไป',
-      subject: formData.get('subject') || document.getElementById('cf-subject')?.value || 'ติดต่อจากหน้าเว็บไซต์',
-      message: formData.get('message') || document.getElementById('cf-message')?.value || '',
-    };
+    const submitBtn = form.querySelector('button[type="submit"]');
+    if (submitBtn) submitBtn.disabled = true;
 
     const token = document.querySelector('meta[name="csrf-token"]')?.getAttribute('content');
     fetch('/api/contact', {
@@ -73,14 +62,36 @@
       // Continue regardless of success for UI smoothness
     }).catch(err => console.error(err));
 
-    if (success) success.classList.add('is-visible');
-    form.reset();
-    requiredFields.forEach(function (f) {
-      const w = f.closest('.field');
-      if (w) w.classList.remove('has-error');
-    });
-
-    if (success) success.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    fetch(form.action, {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'X-Requested-With': 'XMLHttpRequest',
+        'X-CSRF-TOKEN': tokenMeta ? tokenMeta.content : '',
+      },
+      body: new FormData(form),
+    })
+      .then(function (res) { return res.ok ? res : Promise.reject(res); })
+      .then(function () {
+        if (success) {
+          success.classList.add('is-visible');
+          success.style.display = 'flex';
+        }
+        form.reset();
+        requiredFields.forEach(function (f) {
+          const w = f.closest('.field');
+          if (w) w.classList.remove('has-error');
+        });
+        if (success) success.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      })
+      .catch(function () {
+        /* Network/validation failure on the AJAX path — fall back to a
+           real form submit so the message still has a chance to land. */
+        form.submit();
+      })
+      .finally(function () {
+        if (submitBtn) submitBtn.disabled = false;
+      });
   });
 
 })();

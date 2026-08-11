@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Banner;
 use App\Models\Portfolio;
+use App\Models\Service;
 use App\Models\Testimonial;
 
 use App\Models\Poster;
@@ -14,6 +14,7 @@ class HomeController extends Controller
     public function index()
     {
         $banners = Banner::where('active', true)->latest()->get();
+        $services = Service::orderBy('id')->get();
         $portfolios = Portfolio::latest()->get();
         $testimonials = Testimonial::latest()->get();
         $posters = Poster::all();
@@ -21,12 +22,16 @@ class HomeController extends Controller
         return view('home', compact('banners', 'portfolios', 'testimonials', 'posters'));
     }
 
-    public function page($slug)
+    public function page(string $slug)
     {
-        $view = 'pages.' . $slug;
-        if (view()->exists($view)) {
-            return view($view);
+        if ($slug === 'about') {
+            return view('pages.about');
         }
-        abort(404);
+
+        $service = Service::where('slug', $slug)->firstOrFail();
+        $posters = $service->posters()->where('active', true)->orderBy('sort_order')->get();
+        $portfolios = $service->portfolios()->latest()->get();
+
+        return view('pages.service', compact('service', 'posters', 'portfolios'));
     }
 }

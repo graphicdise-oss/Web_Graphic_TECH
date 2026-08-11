@@ -47,6 +47,29 @@
                 <path d="M12 2l9 4.9v10.2L12 22l-9-4.9V6.9L12 2z" />
                 <path d="M12 22V12M21 6.9L12 12 3 6.9" />
               </svg>
+            </a>
+            <a href="#portfolio" class="btn btn-ghost btn-lg">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z" />
+                <circle cx="12" cy="12" r="3" />
+              </svg>
+              ดูผลงานของเรา
+            </a>
+          </div>
+          <div class="hero__trust hero-anim hd-5">
+            <div class="trust-chips">
+              <span class="trust-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                  <path d="M20 6L9 17l-5-5" />
+                </svg>ผลงานกว่า 500+ โปรเจกต์</span>
+              <span class="trust-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                  <path d="M20 6L9 17l-5-5" />
+                </svg>ลูกค้าไว้วางใจ 150+ แบรนด์</span>
+              <span class="trust-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                  <path d="M20 6L9 17l-5-5" />
+                </svg>ประสบการณ์กว่า 8 ปี</span>
+            </div>
+          </div>
+        </div>
 
               @if(isset($posters) && $posters->count() > 0)
                 @foreach($posters as $poster)
@@ -78,117 +101,52 @@
           </div>
         </div>
       </div>
+    </div>
 
 
     </section>
 
-
-
-
-    <!-- ═══════════════════════ SOCIAL PROOF — CLIENT MARQUEE ═══════════════════════ -->
-    <section class="proof reveal" aria-label="ลูกค้าที่ไว้วางใจเรา">
-      <div class="container">
-        <p class="proof__label">แบรนด์และองค์กรที่ไว้วางใจให้เราดูแล</p>
-      </div>
-      <div class="marquee">
-        <div class="marquee__track" id="clientMarquee">
-          <span class="client-logo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
-              <rect x="3" y="7" width="18" height="13" rx="2" />
-              <path d="M8 7V5a4 4 0 018 0v2" />
-            </svg>Mandarin Oriental</span>
-          <span class="client-logo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
-              <circle cx="12" cy="12" r="9" />
-              <path d="M8 12l3 3 5-6" />
-            </svg>Novae Group</span>
-          <span class="client-logo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
-              <path d="M12 2l9 4.9v10.2L12 22l-9-4.9V6.9L12 2z" />
-            </svg>FlowMed Health</span>
-          <span class="client-logo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
-              <rect x="3" y="3" width="7" height="7" />
-              <rect x="14" y="3" width="7" height="7" />
-              <rect x="14" y="14" width="7" height="7" />
-              <rect x="3" y="14" width="7" height="7" />
-            </svg>LogiPro</span>
-          <span class="client-logo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
-              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
-            </svg>Siam Collection</span>
-          <span class="client-logo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
-              <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
-            </svg>Bloom Beauty</span>
-          <span class="client-logo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
-              <circle cx="12" cy="12" r="9" />
-              <path d="M12 7v5l3 3" />
-            </svg>ArtSpace Gallery</span>
-          <span class="client-logo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
-              <path d="M4 21V9l8-6 8 6v12" />
-              <path d="M9 21v-6h6v6" />
-            </svg>Kinto Coffee</span>
-          <span class="client-logo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
-              <rect x="3" y="7" width="18" height="13" rx="2" />
-              <path d="M8 7V5a4 4 0 018 0v2" />
-            </svg>ReBank</span>
-          <!-- duplicate set for seamless loop -->
-          <span class="client-logo" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
-              stroke-width="1.6">
-              <rect x="3" y="7" width="18" height="13" rx="2" />
-              <path d="M8 7V5a4 4 0 018 0v2" />
-            </svg>Mandarin Oriental</span>
-          <span class="client-logo" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
-              stroke-width="1.6">
-              <circle cx="12" cy="12" r="9" />
-              <path d="M8 12l3 3 5-6" />
-            </svg>Novae Group</span>
-          <span class="client-logo" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
-              stroke-width="1.6">
-              <path d="M12 2l9 4.9v10.2L12 22l-9-4.9V6.9L12 2z" />
-            </svg>FlowMed Health</span>
-          <span class="client-logo" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
-              stroke-width="1.6">
-              <rect x="3" y="3" width="7" height="7" />
-              <rect x="14" y="3" width="7" height="7" />
-              <rect x="14" y="14" width="7" height="7" />
-              <rect x="3" y="14" width="7" height="7" />
-            </svg>LogiPro</span>
-          <span class="client-logo" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
-              stroke-width="1.6">
-              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
-            </svg>Siam Collection</span>
-          <span class="client-logo" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
-              stroke-width="1.6">
-              <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
-            </svg>Bloom Beauty</span>
-        </div>
-      </div>
-    </section>
-
-
-    <!-- ═══════════════════════ AUTO SLIDER BANNER ═══════════════════════ -->
+  <!-- ═══════════════════════ AUTO SLIDER BANNER (Poster/Promo — editable in admin) ═══════════════════════ -->
+  @if ($banners->count())
     <section class="banner-slider" aria-label="แบนเนอร์โปรโมท">
       <div class="slider-container" id="mainSlider">
         <div class="slider-track" id="sliderTrack">
-          <!-- รูปภาพที่ 1 -->
-          <div class="slide">
-            <img src="{{ asset('assets/images/brand/bg-hero.jpg') }}" alt="Banner 1">
-          </div>
-          <!-- รูปภาพที่ 2 -->
-          <div class="slide">
-            <img src="{{ asset('assets/images/services/cover-branding.jpg') }}" alt="Banner 2">
-          </div>
-          <!-- รูปภาพที่ 3 -->
-          <div class="slide">
-            <img src="{{ asset('assets/images/services/cover-web.jpg') }}" alt="Banner 3">
-          </div>
+          @foreach ($banners as $banner)
+            <div class="slide">
+              <a href="{{ $banner->link ?: '#contact' }}">
+                <img src="{{ $banner->image }}" alt="{{ $banner->title }}">
+              </a>
+            </div>
+          @endforeach
         </div>
-
-        <!-- ปุ่มเลื่อนซ้าย-ขวา -->
         <button class="slider-btn prev" id="sliderPrev" aria-label="Previous slide">&#10094;</button>
         <button class="slider-btn next" id="sliderNext" aria-label="Next slide">&#10095;</button>
-
-        <!-- จุดไข่ปลา (Dots) -->
         <div class="slider-dots" id="sliderDots"></div>
       </div>
     </section>
+  @endif
 
+  <!-- ═══════════════════════ SOCIAL PROOF — CLIENT MARQUEE ═══════════════════════ -->
+  <section class="proof reveal" aria-label="ลูกค้าที่ไว้วางใจเรา">
+    <div class="container">
+      <p class="proof__label">แบรนด์และองค์กรที่ไว้วางใจให้เราดูแล</p>
+    </div>
+    <div class="marquee">
+      <div class="marquee__track" id="clientMarquee">
+        @php
+          $clients = ['Mandarin Oriental', 'Novae Group', 'FlowMed Health', 'LogiPro', 'Siam Collection', 'Bloom Beauty'];
+        @endphp
+        @foreach (array_merge($clients, $clients) as $i => $client)
+          <span class="client-logo" @if($i >= count($clients)) aria-hidden="true" @endif>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+              <circle cx="12" cy="12" r="9" />
+              <path d="M8 12l3 3 5-6" />
+            </svg>{{ $client }}
+          </span>
+        @endforeach
+      </div>
+    </div>
+  </section>
 
 
     <!-- ═══════════════════════ SERVICES ═══════════════════════ -->
@@ -202,6 +160,10 @@
             เราดูแลทุกขั้นตอนด้วยทีมผู้เชี่ยวชาญเฉพาะทาง
             ไม่ว่าธุรกิจของคุณจะอยู่ในอุตสาหกรรมใด</p>
         </div>
+        <p class="sec-head__aside">ตั้งแต่การวางกลยุทธ์ ออกแบบ ไปจนถึงพัฒนาระบบ
+          เราดูแลทุกขั้นตอนด้วยทีมผู้เชี่ยวชาญเฉพาะทาง
+          ไม่ว่าธุรกิจของคุณจะอยู่ในอุตสาหกรรมใด</p>
+      </div>
 
         <div class="grid grid-3">
           <a href="{{ route('page', 'service-uiux') }}" class="service-card reveal d-1"
@@ -209,15 +171,12 @@
             <span class="service-card__num">01</span>
             <span class="icon-tile">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"
-                stroke-linejoin="round">
-                <rect x="2" y="3" width="20" height="14" rx="2" />
-                <path d="M8 21h8M12 17v4" />
-              </svg>
+                stroke-linejoin="round">{!! $service->icon !!}</svg>
             </span>
-            <h3>UI/UX Design</h3>
-            <p>ออกแบบประสบการณ์ผู้ใช้ที่ใช้งานง่าย สวยงาม และตอบโจทย์เป้าหมายทางธุรกิจอย่างแท้จริง</p>
+            <h3>{{ $service->name }}</h3>
+            <p>{{ $service->description }}</p>
             <div class="service-card__foot">
-              <span class="small">Research · Wireframe · Prototype</span>
+              <span class="small">{{ $c['tags'] ?? '' }}</span>
               <span class="service-card__arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
                   stroke-width="2">
                   <path d="M5 12h14M13 6l6 6-6 6" />
@@ -343,43 +302,22 @@
           <p>ตัวอย่างส่วนหนึ่งจากผลงานที่เราภาคภูมิใจ ครอบคลุมหลากหลายอุตสาหกรรม</p>
         </div>
 
-        <div class="filters reveal" id="portfolioFilters">
-          <button class="filter-btn is-active" data-filter="all">ทั้งหมด</button>
-          <button class="filter-btn" data-filter="UI/UX Design">UI/UX Design</button>
-          <button class="filter-btn" data-filter="Web Development">Web Development</button>
-          <button class="filter-btn" data-filter="Branding">Branding</button>
-          <button class="filter-btn" data-filter="Graphic Design">Graphic Design</button>
-          <button class="filter-btn" data-filter="Digital Marketing">Digital Marketing</button>
-          <button class="filter-btn" data-filter="ERP System">ERP System</button>
-        </div>
+        <div class="why__content reveal-right">
+          <p class="eyebrow">Why Graphic TECH</p>
+          <h2>เหตุผลที่แบรนด์ชั้นนำ<br>เลือกไว้วางใจเรา</h2>
+          <p class="lead">เราไม่ได้เป็นแค่ผู้รับจ้างทำงาน แต่เป็นพาร์ทเนอร์ที่เข้าใจเป้าหมายธุรกิจ
+            และส่งมอบผลลัพธ์ที่วัดผลได้จริงในทุกโปรเจกต์</p>
 
-        <div class="portfolio-grid" id="portfolioGrid">
-          <!-- populated by data-portfolio.js + main.js -->
-        </div>
-        <div class="portfolio__foot">
-          <button class="btn btn-outline" id="loadMoreBtn">โหลดผลงานเพิ่มเติม</button>
-        </div>
-      </div>
-    </section>
-
-    <!-- ═══════════════════════ WHY CHOOSE US ═══════════════════════ -->
-    <section class="section why" id="why">
-      <div class="container">
-        <div class="why__wrap">
-          <div class="why__media reveal-left">
-            <div class="why__media-card">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
-                <path d="M12 2l9 4.9v10.2L12 22l-9-4.9V6.9L12 2z" />
-                <path d="M12 22V12M21 6.9L12 12 3 6.9" />
-              </svg>
-            </div>
-            <div class="why__media-badge">
+          <div class="why-list">
+            <div class="why-item">
               <span class="icon-tile icon-tile--sm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
                   stroke-width="2">
-                  <path
-                    d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 000-7.78z" />
+                  <path d="M12 2l3 7h7l-5.5 4.5L18.5 21 12 16.5 5.5 21l2-7.5L2 9h7z" />
                 </svg></span>
-              <span><b>98% พึงพอใจ</b><span>จากลูกค้าที่ใช้บริการ</span></span>
+              <div>
+                <h4>ทีมงานมืออาชีพเฉพาะทาง</h4>
+                <p>นักออกแบบและนักพัฒนาที่มีประสบการณ์ตรงในแต่ละสายงาน</p>
+              </div>
             </div>
           </div>
 
@@ -399,46 +337,38 @@
                   <p>นักออกแบบและนักพัฒนาที่มีประสบการณ์ตรงในแต่ละสายงาน</p>
                 </div>
               </div>
-              <div class="why-item">
-                <span class="icon-tile icon-tile--sm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                    stroke-width="2">
-                    <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
-                  </svg></span>
-                <div>
-                  <h4>ทำงานรวดเร็ว ตรงเวลา</h4>
-                  <p>วางแผนและควบคุมไทม์ไลน์อย่างเป็นระบบ ส่งมอบงานตามกำหนดเสมอ</p>
-                </div>
+            </div>
+            <div class="why-item">
+              <span class="icon-tile icon-tile--sm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2">
+                  <rect x="3" y="11" width="18" height="10" rx="2" />
+                  <path d="M7 11V7a5 5 0 0110 0v4" />
+                </svg></span>
+              <div>
+                <h4>โปร่งใส ตรวจสอบได้</h4>
+                <p>รายงานความคืบหน้าสม่ำเสมอ พร้อมสรุปผลลัพธ์อย่างชัดเจน</p>
               </div>
-              <div class="why-item">
-                <span class="icon-tile icon-tile--sm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                    stroke-width="2">
-                    <rect x="3" y="11" width="18" height="10" rx="2" />
-                    <path d="M7 11V7a5 5 0 0110 0v4" />
-                  </svg></span>
-                <div>
-                  <h4>โปร่งใส ตรวจสอบได้</h4>
-                  <p>รายงานความคืบหน้าสม่ำเสมอ พร้อมสรุปผลลัพธ์อย่างชัดเจน</p>
-                </div>
-              </div>
-              <div class="why-item">
-                <span class="icon-tile icon-tile--sm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                    stroke-width="2">
-                    <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
-                    <circle cx="9" cy="7" r="4" />
-                    <path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" />
-                  </svg></span>
-                <div>
-                  <h4>ดูแลหลังส่งมอบงาน</h4>
-                  <p>ทีม Support พร้อมช่วยเหลือหลัง Launch เพื่อความอุ่นใจของคุณ</p>
-                </div>
+            </div>
+            <div class="why-item">
+              <span class="icon-tile icon-tile--sm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2">
+                  <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
+                  <circle cx="9" cy="7" r="4" />
+                  <path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" />
+                </svg></span>
+              <div>
+                <h4>ดูแลหลังส่งมอบงาน</h4>
+                <p>ทีม Support พร้อมช่วยเหลือหลัง Launch เพื่อความอุ่นใจของคุณ</p>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- ═══════════════════════ TESTIMONIALS ═══════════════════════ -->
+  <!-- ═══════════════════════ TESTIMONIALS ═══════════════════════ -->
+  @if ($testimonials->count())
     <section class="section testimonials" id="testimonials">
       <div class="container">
         <div class="sec-head sec-head--center reveal">
@@ -449,163 +379,26 @@
 
       <div class="container t-track-wrap">
         <div class="t-track" id="testimonialTrack">
-
-          <div class="t-slide">
-            <div class="t-card">
-              <div class="t-card__stars">
-                <svg viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M12 2l3 7h7l-5.5 4.5L18.5 21 12 16.5 5.5 21l2-7.5L2 9h7z" />
-                </svg>
-                <svg viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M12 2l3 7h7l-5.5 4.5L18.5 21 12 16.5 5.5 21l2-7.5L2 9h7z" />
-                </svg>
-                <svg viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M12 2l3 7h7l-5.5 4.5L18.5 21 12 16.5 5.5 21l2-7.5L2 9h7z" />
-                </svg>
-                <svg viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M12 2l3 7h7l-5.5 4.5L18.5 21 12 16.5 5.5 21l2-7.5L2 9h7z" />
-                </svg>
-                <svg viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M12 2l3 7h7l-5.5 4.5L18.5 21 12 16.5 5.5 21l2-7.5L2 9h7z" />
-                </svg>
-              </div>
-              <p class="t-card__quote">"ทีมงานเข้าใจโจทย์ธุรกิจตั้งแต่การพูดคุยครั้งแรก ผลงานที่ได้เกินความคาดหวัง
-                ทั้งดีไซน์และประสิทธิภาพของเว็บไซต์ใหม่ ยอดขายออนไลน์เติบโตขึ้นชัดเจน"</p>
-              <div class="t-card__person">
-                <span class="t-avatar">ณC</span>
-                <span><b>ณัฐชา จันทร์เพ็ญ</b><span>Marketing Director, Mandarin Oriental</span></span>
-              </div>
+          @foreach ($testimonials->chunk(3) as $slide)
+            <div class="t-slide">
+              @foreach ($slide as $t)
+                <div class="t-card">
+                  <div class="t-card__stars">
+                    @for ($s = 0; $s < $t->rating; $s++)
+                      <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2l3 7h7l-5.5 4.5L18.5 21 12 16.5 5.5 21l2-7.5L2 9h7z" />
+                      </svg>
+                    @endfor
+                  </div>
+                  <p class="t-card__quote">"{{ $t->comment }}"</p>
+                  <div class="t-card__person">
+                    <span class="t-avatar">{{ $t->avatar ?: mb_substr($t->name, 0, 1) }}</span>
+                    <span><b>{{ $t->name }}</b><span>{{ trim(($t->position ?? '') . ', ' . ($t->company ?? ''), ', ') }}</span></span>
+                  </div>
+                </div>
+              @endforeach
             </div>
-            <div class="t-card">
-              <div class="t-card__stars">
-                <svg viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M12 2l3 7h7l-5.5 4.5L18.5 21 12 16.5 5.5 21l2-7.5L2 9h7z" />
-                </svg>
-                <svg viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M12 2l3 7h7l-5.5 4.5L18.5 21 12 16.5 5.5 21l2-7.5L2 9h7z" />
-                </svg>
-                <svg viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M12 2l3 7h7l-5.5 4.5L18.5 21 12 16.5 5.5 21l2-7.5L2 9h7z" />
-                </svg>
-                <svg viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M12 2l3 7h7l-5.5 4.5L18.5 21 12 16.5 5.5 21l2-7.5L2 9h7z" />
-                </svg>
-                <svg viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M12 2l3 7h7l-5.5 4.5L18.5 21 12 16.5 5.5 21l2-7.5L2 9h7z" />
-                </svg>
-              </div>
-              <p class="t-card__quote">"ระบบ ERP ที่ Graphic TECH พัฒนาให้ช่วยลดเวลาทำงานด้าน Inventory ไปกว่าครึ่ง
-                ทีมซัพพอร์ตตอบไวและแก้ปัญหาให้ทันทีทุกครั้งที่ติดต่อไป"</p>
-              <div class="t-card__person">
-                <span class="t-avatar">ธK</span>
-                <span><b>ธนกร กิตติวัฒน์</b><span>COO, LogiPro Logistics</span></span>
-              </div>
-            </div>
-            <div class="t-card">
-              <div class="t-card__stars">
-                <svg viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M12 2l3 7h7l-5.5 4.5L18.5 21 12 16.5 5.5 21l2-7.5L2 9h7z" />
-                </svg>
-                <svg viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M12 2l3 7h7l-5.5 4.5L18.5 21 12 16.5 5.5 21l2-7.5L2 9h7z" />
-                </svg>
-                <svg viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M12 2l3 7h7l-5.5 4.5L18.5 21 12 16.5 5.5 21l2-7.5L2 9h7z" />
-                </svg>
-                <svg viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M12 2l3 7h7l-5.5 4.5L18.5 21 12 16.5 5.5 21l2-7.5L2 9h7z" />
-                </svg>
-                <svg viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M12 2l3 7h7l-5.5 4.5L18.5 21 12 16.5 5.5 21l2-7.5L2 9h7z" />
-                </svg>
-              </div>
-              <p class="t-card__quote">"Rebrand ครั้งนี้ทำให้แบรนด์เราดูมืออาชีพขึ้นมาก ลูกค้าเก่าทักมาชมเยอะมาก
-                ทีมออกแบบฟังความต้องการและปรับจนกว่าจะได้งานที่ใช่ที่สุด"</p>
-              <div class="t-card__person">
-                <span class="t-avatar">พS</span>
-                <span><b>พิมพ์ชนก สายชล</b><span>Founder, Siam Collection</span></span>
-              </div>
-            </div>
-          </div>
-
-          <div class="t-slide">
-            <div class="t-card">
-              <div class="t-card__stars">
-                <svg viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M12 2l3 7h7l-5.5 4.5L18.5 21 12 16.5 5.5 21l2-7.5L2 9h7z" />
-                </svg>
-                <svg viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M12 2l3 7h7l-5.5 4.5L18.5 21 12 16.5 5.5 21l2-7.5L2 9h7z" />
-                </svg>
-                <svg viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M12 2l3 7h7l-5.5 4.5L18.5 21 12 16.5 5.5 21l2-7.5L2 9h7z" />
-                </svg>
-                <svg viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M12 2l3 7h7l-5.5 4.5L18.5 21 12 16.5 5.5 21l2-7.5L2 9h7z" />
-                </svg>
-                <svg viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M12 2l3 7h7l-5.5 4.5L18.5 21 12 16.5 5.5 21l2-7.5L2 9h7z" />
-                </svg>
-              </div>
-              <p class="t-card__quote">"แอปมือถือที่ออกแบบให้ผู้ป่วยใช้งานง่ายมาก ทีม UX ลงพื้นที่ทำ Research จริง
-                ไม่ใช่แค่ออกแบบตามความสวยงามอย่างเดียว"</p>
-              <div class="t-card__person">
-                <span class="t-avatar">อW</span>
-                <span><b>อรวรรณ วงศ์สุริยะ</b><span>Product Manager, FlowMed</span></span>
-              </div>
-            </div>
-            <div class="t-card">
-              <div class="t-card__stars">
-                <svg viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M12 2l3 7h7l-5.5 4.5L18.5 21 12 16.5 5.5 21l2-7.5L2 9h7z" />
-                </svg>
-                <svg viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M12 2l3 7h7l-5.5 4.5L18.5 21 12 16.5 5.5 21l2-7.5L2 9h7z" />
-                </svg>
-                <svg viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M12 2l3 7h7l-5.5 4.5L18.5 21 12 16.5 5.5 21l2-7.5L2 9h7z" />
-                </svg>
-                <svg viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M12 2l3 7h7l-5.5 4.5L18.5 21 12 16.5 5.5 21l2-7.5L2 9h7z" />
-                </svg>
-                <svg viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M12 2l3 7h7l-5.5 4.5L18.5 21 12 16.5 5.5 21l2-7.5L2 9h7z" />
-                </svg>
-              </div>
-              <p class="t-card__quote">"แคมเปญการตลาดที่ทำให้เห็นตัวเลข ROI ชัดเจนทุกเดือน ทีมงานอัปเดตผลลัพธ์
-                และปรับกลยุทธ์ให้เร็วตามสถานการณ์ตลาดจริง"</p>
-              <div class="t-card__person">
-                <span class="t-avatar">กP</span>
-                <span><b>กันตินันท์ ปิยะวงศ์</b><span>Founder, Bloom Beauty</span></span>
-              </div>
-            </div>
-            <div class="t-card">
-              <div class="t-card__stars">
-                <svg viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M12 2l3 7h7l-5.5 4.5L18.5 21 12 16.5 5.5 21l2-7.5L2 9h7z" />
-                </svg>
-                <svg viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M12 2l3 7h7l-5.5 4.5L18.5 21 12 16.5 5.5 21l2-7.5L2 9h7z" />
-                </svg>
-                <svg viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M12 2l3 7h7l-5.5 4.5L18.5 21 12 16.5 5.5 21l2-7.5L2 9h7z" />
-                </svg>
-                <svg viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M12 2l3 7h7l-5.5 4.5L18.5 21 12 16.5 5.5 21l2-7.5L2 9h7z" />
-                </svg>
-                <svg viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M12 2l3 7h7l-5.5 4.5L18.5 21 12 16.5 5.5 21l2-7.5L2 9h7z" />
-                </svg>
-              </div>
-              <p class="t-card__quote">"งานพิมพ์และแพคเกจจิ้งออกมาคุณภาพดีมาก สีตรงตาม Brand Guideline ทุกจุด
-                ประสานงานง่าย ตอบไว แนะนำเลยครับ"</p>
-              <div class="t-card__person">
-                <span class="t-avatar">ชT</span>
-                <span><b>ชัยวัฒน์ ตันติเวชกุล</b><span>Owner, Kinto Coffee</span></span>
-              </div>
-            </div>
-          </div>
-
+          @endforeach
         </div>
       </div>
 
@@ -615,88 +408,91 @@
             <path d="M15 18l-6-6 6-6" />
           </svg></button>
         <div class="t-dots" id="tDots">
-          <span class="t-dot is-active"></span><span class="t-dot"></span>
+          @foreach ($testimonials->chunk(3) as $i => $slide)
+            <span class="t-dot {{ $i === 0 ? 'is-active' : '' }}"></span>
+          @endforeach
         </div>
-        <button class="t-arrow" id="tNext" aria-label="ถัดไป"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
-            stroke-width="2">
+        <button class="t-arrow" id="tNext" aria-label="ถัดไป"><svg viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2">
             <path d="M9 18l6-6-6-6" />
           </svg></button>
       </div>
     </section>
+  @endif
 
-    <!-- ═══════════════════════ FAQ ═══════════════════════ -->
-    <section class="section section--soft" id="faq">
-      <div class="container container--narrow">
-        <div class="sec-head reveal">
-          <p class="eyebrow eyebrow--tag">FAQ</p>
-          <h2>คำถามที่พบบ่อย</h2>
-          <p>ยังมีคำถามอื่นๆ ที่อยากรู้เพิ่มเติม? ทักหาทีมงานได้ทุกช่องทาง</p>
+  <!-- ═══════════════════════ FAQ ═══════════════════════ -->
+  <section class="section section--soft" id="faq">
+    <div class="container container--narrow">
+      <div class="sec-head reveal">
+        <p class="eyebrow eyebrow--tag">FAQ</p>
+        <h2>คำถามที่พบบ่อย</h2>
+        <p>ยังมีคำถามอื่นๆ ที่อยากรู้เพิ่มเติม? ทักหาทีมงานได้ทุกช่องทาง</p>
+      </div>
+
+      <div class="accordion reveal" id="faqAccordion">
+        <div class="acc-item is-open">
+          <button class="acc-trigger" aria-expanded="true">
+            ใช้เวลานานแค่ไหนกว่าจะเห็นผลงานเบื้องต้น?
+            <span class="acc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4">
+                <path d="M12 5v14M5 12h14" />
+              </svg></span>
+          </button>
+          <div class="acc-panel">
+            <div class="acc-panel__inner">โดยเฉลี่ยลูกค้าจะเห็น Concept หรือ Wireframe เบื้องต้นภายใน 5-7 วันทำการ
+              หลังจากตกลง Scope งานและชำระมัดจำ ขึ้นอยู่กับความซับซ้อนของแต่ละโปรเจกต์</div>
+          </div>
         </div>
-
-        <div class="accordion reveal" id="faqAccordion">
-          <div class="acc-item is-open">
-            <button class="acc-trigger" aria-expanded="true">
-              ใช้เวลานานแค่ไหนกว่าจะเห็นผลงานเบื้องต้น?
-              <span class="acc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4">
-                  <path d="M12 5v14M5 12h14" />
-                </svg></span>
-            </button>
-            <div class="acc-panel">
-              <div class="acc-panel__inner">โดยเฉลี่ยลูกค้าจะเห็น Concept หรือ Wireframe เบื้องต้นภายใน 5-7 วันทำการ
-                หลังจากตกลง Scope งานและชำระมัดจำ ขึ้นอยู่กับความซับซ้อนของแต่ละโปรเจกต์</div>
-            </div>
+        <div class="acc-item">
+          <button class="acc-trigger" aria-expanded="false">
+            คิดค่าบริการอย่างไร มีแพ็กเกจสำเร็จรูปไหม?
+            <span class="acc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4">
+                <path d="M12 5v14M5 12h14" />
+              </svg></span>
+          </button>
+          <div class="acc-panel">
+            <div class="acc-panel__inner">เรามีทั้งแพ็กเกจมาตรฐานสำหรับงานทั่วไป และแบบ Custom Quote ตาม Scope จริง
+              ทีมงานจะประเมินราคาให้ฟรีหลังทราบรายละเอียดโปรเจกต์ของคุณ</div>
           </div>
-          <div class="acc-item">
-            <button class="acc-trigger" aria-expanded="false">
-              คิดค่าบริการอย่างไร มีแพ็กเกจสำเร็จรูปไหม?
-              <span class="acc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4">
-                  <path d="M12 5v14M5 12h14" />
-                </svg></span>
-            </button>
-            <div class="acc-panel">
-              <div class="acc-panel__inner">เรามีทั้งแพ็กเกจมาตรฐานสำหรับงานทั่วไป และแบบ Custom Quote ตาม Scope จริง
-                ทีมงานจะประเมินราคาให้ฟรีหลังทราบรายละเอียดโปรเจกต์ของคุณ</div>
-            </div>
+        </div>
+        <div class="acc-item">
+          <button class="acc-trigger" aria-expanded="false">
+            หลังส่งมอบงานแล้ว มีการดูแลต่อหรือไม่?
+            <span class="acc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4">
+                <path d="M12 5v14M5 12h14" />
+              </svg></span>
+          </button>
+          <div class="acc-panel">
+            <div class="acc-panel__inner">ทุกโปรเจกต์มีระยะเวลาดูแลหลังส่งมอบฟรีอย่างน้อย 30 วัน และมีแพ็กเกจ
+              Maintenance รายเดือนสำหรับลูกค้าที่ต้องการดูแลต่อเนื่องระยะยาว</div>
           </div>
-          <div class="acc-item">
-            <button class="acc-trigger" aria-expanded="false">
-              หลังส่งมอบงานแล้ว มีการดูแลต่อหรือไม่?
-              <span class="acc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4">
-                  <path d="M12 5v14M5 12h14" />
-                </svg></span>
-            </button>
-            <div class="acc-panel">
-              <div class="acc-panel__inner">ทุกโปรเจกต์มีระยะเวลาดูแลหลังส่งมอบฟรีอย่างน้อย 30 วัน และมีแพ็กเกจ
-                Maintenance รายเดือนสำหรับลูกค้าที่ต้องการดูแลต่อเนื่องระยะยาว</div>
-            </div>
+        </div>
+        <div class="acc-item">
+          <button class="acc-trigger" aria-expanded="false">
+            รับงานด่วนหรือโปรเจกต์ขนาดเล็กหรือไม่?
+            <span class="acc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4">
+                <path d="M12 5v14M5 12h14" />
+              </svg></span>
+          </button>
+          <div class="acc-panel">
+            <div class="acc-panel__inner">รับครับ เรามีทีมที่ดูแลงานเร่งด่วนโดยเฉพาะ พร้อมทั้งงานขนาดเล็กอย่าง
+              Logo หรือ Landing Page เดี่ยว ไปจนถึงระบบขนาดใหญ่ระดับองค์กร</div>
           </div>
-          <div class="acc-item">
-            <button class="acc-trigger" aria-expanded="false">
-              รับงานด่วนหรือโปรเจกต์ขนาดเล็กหรือไม่?
-              <span class="acc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4">
-                  <path d="M12 5v14M5 12h14" />
-                </svg></span>
-            </button>
-            <div class="acc-panel">
-              <div class="acc-panel__inner">รับครับ เรามีทีมที่ดูแลงานเร่งด่วนโดยเฉพาะ พร้อมทั้งงานขนาดเล็กอย่าง
-                Logo หรือ Landing Page เดี่ยว ไปจนถึงระบบขนาดใหญ่ระดับองค์กร</div>
-            </div>
-          </div>
-          <div class="acc-item">
-            <button class="acc-trigger" aria-expanded="false">
-              ติดต่อขอใบเสนอราคาได้ช่องทางไหนบ้าง?
-              <span class="acc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4">
-                  <path d="M12 5v14M5 12h14" />
-                </svg></span>
-            </button>
-            <div class="acc-panel">
-              <div class="acc-panel__inner">ติดต่อได้ผ่านฟอร์มด้านล่างของหน้านี้ อีเมล โทรศัพท์ หรือ LINE Official
-                ทีมงานตอบกลับภายใน 24-48 ชั่วโมงทำการ</div>
-            </div>
+        </div>
+        <div class="acc-item">
+          <button class="acc-trigger" aria-expanded="false">
+            ติดต่อขอใบเสนอราคาได้ช่องทางไหนบ้าง?
+            <span class="acc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4">
+                <path d="M12 5v14M5 12h14" />
+              </svg></span>
+          </button>
+          <div class="acc-panel">
+            <div class="acc-panel__inner">ติดต่อได้ผ่านฟอร์มด้านล่างของหน้านี้ อีเมล โทรศัพท์ หรือ LINE Official
+              ทีมงานตอบกลับภายใน 24-48 ชั่วโมงทำการ</div>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
 
     <!-- ═══════════════════════ CONTACT ═══════════════════════ -->
