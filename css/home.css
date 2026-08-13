@@ -426,6 +426,7 @@
   outline-offset: 3px;
 }
 
+
 .service-card__num {
   position: absolute;
   top: 14px;
@@ -551,14 +552,6 @@
   transform: rotate(-45deg);
 }
 
-.services__foot {
-  margin-top: 44px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 18px;
-  flex-wrap: wrap;
-}
 
 /* ------------------------------------------------------------
    PORTFOLIO

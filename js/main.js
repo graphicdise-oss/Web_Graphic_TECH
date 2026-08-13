@@ -238,7 +238,7 @@
 
     batch.forEach(function (item, i) {
       const globalIndex = rendered + i;
-      const isFeaturedSpot = activeFilter === "all" && globalIndex === 0;
+      const isFeaturedSpot = false; // Removed featured spot to align all cards equally
       grid.appendChild(renderPortfolioItem(item, isFeaturedSpot));
     });
     rendered += batch.length;

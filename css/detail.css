@@ -400,3 +400,16 @@
   .detail-cover       { height: 180px; }
   .detail-cta         { padding: 30px 22px; }
 }
+
+/* ============================================================
+   DETAIL CONTAINER (For standalone pages)
+   ============================================================ */
+.detail-container {
+  width: 100%;
+  max-width: 860px;
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+  padding-top: 60px;
+  padding-bottom: 80px;
+}
+

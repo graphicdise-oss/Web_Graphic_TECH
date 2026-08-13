@@ -100,7 +100,8 @@
       document.body.style.overflow = '';
     }
 
-    openOverlay(page);
+    // Navigate directly to the standalone service page
+    window.location.href = `pages/${page}.html`;
   });
 
   /* ---------- Keyboard: Enter / Space on service cards ---------- */
@@ -109,7 +110,8 @@
     const trigger = e.target.closest('[data-page]');
     if (trigger) {
       e.preventDefault();
-      openOverlay(trigger.dataset.page);
+      const page = trigger.dataset.page;
+      if (page) window.location.href = `pages/${page}.html`;
     }
   });
 

@@ -1,4 +1,28 @@
-<main>
+﻿<!DOCTYPE html>
+<html lang="th">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Graphic Design | Graphic TECH">
+  <title>Graphic Design | Graphic TECH</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700;800&family=Sora:wght@400;500;600;700;800&display=swap">
+
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/home.css">
+  <link rel="stylesheet" href="../css/detail.css">
+  <link rel="stylesheet" href="../css/animations.css">
+</head>
+
+<body>
+  <div id="app-header"></div>
+
+<main class="detail-container">
   <!-- ══ HEADER ══ -->
   <div class="detail-header detail-hero">
     <span class="detail-label">บริการของเรา</span>
@@ -11,7 +35,7 @@
 
   <!-- ══ COVER ══ -->
   <div class="detail-cover">
-    <img src="assets/images/services/cover-graphic.jpg" alt="Graphic Design"
+    <img src="../assets/images/services/graphic/promote_banner/cover.jpg" alt="Graphic Design"
          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
     <div class="detail-cover-placeholder" style="display:none">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
@@ -112,6 +136,30 @@
     </div>
   </div>
 
+  <!-- ══ PORTFOLIO ══ -->
+  <div class="detail-section">
+    <h2 class="detail-section-title">ผลงานของเรา (Portfolio)</h2>
+    
+    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-bottom: 24px;">
+      <div style="aspect-ratio: 4/3; background-color: var(--surface-2); border: 1px solid var(--line); border-radius: 8px; overflow: hidden; display: flex; align-items: center; justify-content: center;">
+        <img src="../assets/images/services/graphic/portfolio_banner/1.jpg" alt="Portfolio 1" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+        <span style="display:none; color: var(--muted); font-size: 0.9rem;">Portfolio Image 1</span>
+      </div>
+      <div style="aspect-ratio: 4/3; background-color: var(--surface-2); border: 1px solid var(--line); border-radius: 8px; overflow: hidden; display: flex; align-items: center; justify-content: center;">
+        <img src="../assets/images/services/graphic/portfolio_banner/2.jpg" alt="Portfolio 2" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+        <span style="display:none; color: var(--muted); font-size: 0.9rem;">Portfolio Image 2</span>
+      </div>
+      <div style="aspect-ratio: 4/3; background-color: var(--surface-2); border: 1px solid var(--line); border-radius: 8px; overflow: hidden; display: flex; align-items: center; justify-content: center;">
+        <img src="../assets/images/services/graphic/portfolio_banner/3.jpg" alt="Portfolio 3" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+        <span style="display:none; color: var(--muted); font-size: 0.9rem;">Portfolio Image 3</span>
+      </div>
+      <div style="aspect-ratio: 4/3; background-color: var(--surface-2); border: 1px solid var(--line); border-radius: 8px; overflow: hidden; display: flex; align-items: center; justify-content: center;">
+        <img src="../assets/images/services/graphic/portfolio_banner/4.jpg" alt="Portfolio 4" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+        <span style="display:none; color: var(--muted); font-size: 0.9rem;">Portfolio Image 4</span>
+      </div>
+    </div>
+  </div>
+
   <!-- ══ CTA ══ -->
   <div class="detail-cta">
     <h3>มีโปรเจกต์กราฟิกอยู่ในใจ?</h3>
@@ -121,3 +169,16 @@
     </a>
   </div>
 </main>
+
+  <div id="app-footer"></div>
+
+  <script src="../js/layout-components.js"></script>
+  <script src="../js/data-portfolio.js"></script>
+  <script src="../js/counters.js"></script>
+  <script src="../js/testimonials.js"></script>
+  <script src="../js/faq.js"></script>
+  <script src="../js/contact-form.js"></script>
+  <script src="../js/main.js"></script>
+</body>
+
+</html>
