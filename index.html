@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Graphic TECH">
+  <title>Graphic TECH</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700;800&family=Sora:wght@400;500;600;700;800&display=swap">
+
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/home.css">
+  <link rel="stylesheet" href="css/animations.css">
+</head>
+
+<body>
+  <a href="#main" class="skip-link">ข้ามไปยังเนื้อหาหลัก</a>
+
+  <!-- ═══════════════════════ HEADER PLACEHOLDER ═══════════════════════ -->
+  <div id="app-header"></div>
+
+
+  <main id="main">
+
+
+
+    <!-- ═══════════════════════ HERO ═══════════════════════ -->
+    <section class="hero" id="home">
+      <div class="hero-grid-bg" aria-hidden="true"></div>
+      <div class="hero-media" aria-hidden="true">
+        <video autoplay muted loop playsinline poster="assets/images/brand/bg-hero.jpg">
+          <source src="assets/images/brand/hero-loop.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="hero-orb hero-orb--1 float-shape" aria-hidden="true"></div>
+      <div class="hero-orb hero-orb--2 float-shape float-shape--slow" aria-hidden="true"></div>
+
+      <div class="container">
+        <div class="hero__inner">
+          <div class="hero__content">
+            <h1 class="hero__title hero-anim hd-2">
+              <span class="line">สร้างแบรนด์ให้แข็งแกร่ง</span>
+              <span class="line">ด้วยดีไซน์และเทคโนโลยี</span>
+              <span class="line text-gradient">ระดับมืออาชีพ</span>
+            </h1>
+            <p class="hero__sub hero-anim hd-3">
+              Graphic TECH คือทีมผู้เชี่ยวชาญด้าน UI/UX, Graphic Design, Web Development,
+              Digital Marketing, ERP System และ Branding ที่พร้อมยกระดับธุรกิจของคุณให้เติบโต
+              อย่างมั่นคงและน่าเชื่อถือ
+            </p>
+
+          </div>
+
+          <div class="hero__visual hero-anim hd-3">
+            <div class="hero__stage">
+              <svg class="hero__mark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.6"
+                aria-hidden="true">
+                <path d="M12 2l9 4.9v10.2L12 22l-9-4.9V6.9L12 2z" />
+                <path d="M12 22V12M21 6.9L12 12 3 6.9" />
+              </svg>
+
+              <figure class="collage-card collage-card--a float-shape float-shape--sm" style="--r:-4deg">
+                <div class="collage-card__thumb">
+                  <img src="assets/images/hero-cards/banner.png" alt="Kinto Coffee Image">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+                  </svg>
+                </div>
+                <figcaption class="collage-card__tag">Kinto Coffee — New System<small>Branding & Design · 2024</small>
+                </figcaption>
+              </figure>
+
+              <figure class="collage-card collage-card--b float-shape float-shape--sm" style="--r:5deg">
+                <div class="collage-card__thumb">
+                  <img src="assets/images/hero-cards/banner.png" alt="ArtSpace Gallery Image">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                    <polyline points="16 18 22 12 16 6" />
+                    <polyline points="8 6 2 12 8 18" />
+                  </svg>
+                </div>
+                <figcaption class="collage-card__tag">ArtSpace Gallery App<small>Web App Development</small>
+                </figcaption>
+              </figure>
+
+              <figure class="collage-card collage-card--c float-shape float-shape--sm" style="--r:3deg">
+                <div class="collage-card__thumb">
+                  <img src="assets/images/hero-cards/banner.png" alt="ReBank Mobile UX Image">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                    <rect x="2" y="3" width="20" height="14" rx="2" />
+                    <path d="M8 21h8M12 17v4" />
+                  </svg>
+                </div>
+                <figcaption class="collage-card__tag">ReBank Mobile App<small>UI/UX Design · Finance</small>
+                </figcaption>
+              </figure>
+
+              <div class="hero__collage-stat">
+                <span class="icon-tile icon-tile--sm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2">
+                    <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
+                    <circle cx="9" cy="7" r="4" />
+                    <path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" />
+                  </svg></span>
+                <span><b>150+</b><span>แบรนด์ไว้วางใจ</span></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+
+
+
+
+
+
+    <!-- ═══════════════════════ AUTO SLIDER BANNER ═══════════════════════ -->
+    <section class="banner-slider" aria-label="แบนเนอร์โปรโมท">
+      <div class="slider-container" id="mainSlider">
+        <div class="slider-track" id="sliderTrack">
+          <!-- รูปภาพที่ 1 -->
+          <div class="slide">
+            <img src="assets/images/brand/1.png" alt="Banner 1">
+          </div>
+          <!-- รูปภาพที่ 2 -->
+          <div class="slide">
+            <img src="assets/images/brand/2.png" alt="Banner 2">
+          </div>
+          <!-- รูปภาพที่ 3 -->
+          <div class="slide">
+            <img src="assets/images/brand/3.png" alt="Banner 3">
+          </div>
+        </div>
+
+        <!-- ปุ่มเลื่อนซ้าย-ขวา -->
+        <button class="slider-btn prev" id="sliderPrev" aria-label="Previous slide">&#10094;</button>
+        <button class="slider-btn next" id="sliderNext" aria-label="Next slide">&#10095;</button>
+
+        <!-- จุดไข่ปลา (Dots) -->
+        <div class="slider-dots" id="sliderDots"></div>
+      </div>
+    </section>
+
+
+
+    <!-- ═══════════════════════ SERVICES ═══════════════════════ -->
+    <section class="section services" id="services">
+      <div class="container">
+        <div class="sec-head sec-head--split reveal">
+          <div class="sec-head__main">
+            <h2>บริการของเรา<br>ครบวงจรทุกมิติ</h2>
+          </div>
+          <p class="sec-head__aside">ตั้งแต่การวางกลยุทธ์ ออกแบบ ไปจนถึงพัฒนาระบบ
+            เราดูแลทุกขั้นตอนด้วยทีมผู้เชี่ยวชาญเฉพาะทาง
+            ไม่ว่าธุรกิจของคุณจะอยู่ในอุตสาหกรรมใด</p>
+        </div>
+
+        <div class="grid grid-3">
+          <a href="pages/service-uiux.html" class="service-card reveal d-1" tabindex="0"
+            role="button" aria-label="UI/UX Design">
+            <span class="service-card__num">01</span>
+            <span class="icon-tile">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"
+                stroke-linejoin="round">
+                <rect x="2" y="3" width="20" height="14" rx="2" />
+                <path d="M8 21h8M12 17v4" />
+              </svg>
+            </span>
+            <h3>UI/UX Design</h3>
+            <p>ออกแบบประสบการณ์ผู้ใช้ที่ใช้งานง่าย สวยงาม และตอบโจทย์เป้าหมายทางธุรกิจอย่างแท้จริง</p>
+            <div class="service-card__foot">
+              <span class="small">Research · Wireframe · Prototype</span>
+              <span class="service-card__arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2">
+                  <path d="M5 12h14M13 6l6 6-6 6" />
+                </svg></span>
+            </div>
+          </a>
+
+          <a href="pages/service-graphic.html" class="service-card reveal d-2" tabindex="0" role="button"
+            aria-label="Graphic Design">
+            <span class="service-card__num">02</span>
+            <span class="icon-tile">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"
+                stroke-linejoin="round">
+                <circle cx="13.5" cy="6.5" r="2.5" />
+                <circle cx="6.5" cy="14.5" r="2.5" />
+                <path d="M17 21v-1a4 4 0 00-4-4H5a4 4 0 00-4 4v1" />
+                <path d="M22 11l-3-3-7 7-3-3" />
+              </svg>
+            </span>
+            <h3>Graphic Design</h3>
+            <p>สร้างสรรค์งานกราฟิกที่โดดเด่น ทั้งสื่อดิจิทัลและสิ่งพิมพ์ ให้แบรนด์คุณสะดุดตาและจดจำได้</p>
+            <div class="service-card__foot">
+              <span class="small">Key Visual · Print · Social Content</span>
+              <span class="service-card__arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2">
+                  <path d="M5 12h14M13 6l6 6-6 6" />
+                </svg></span>
+            </div>
+          </a>
+
+          <a href="pages/service-web.html" class="service-card reveal d-3" tabindex="0" role="button"
+            aria-label="Web Development">
+            <span class="service-card__num">03</span>
+            <span class="icon-tile">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"
+                stroke-linejoin="round">
+                <polyline points="16 18 22 12 16 6" />
+                <polyline points="8 6 2 12 8 18" />
+              </svg>
+            </span>
+            <h3>Web Development</h3>
+            <p>พัฒนาเว็บไซต์และแอปพลิเคชันที่รวดเร็ว ปลอดภัย รองรับทุกอุปกรณ์ และขยายต่อได้ในอนาคต</p>
+            <div class="service-card__foot">
+              <span class="small">React · Next.js · WordPress</span>
+              <span class="service-card__arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2">
+                  <path d="M5 12h14M13 6l6 6-6 6" />
+                </svg></span>
+            </div>
+          </a>
+
+          <a href="pages/service-marketing.html" class="service-card reveal d-1" tabindex="0" role="button"
+            aria-label="Digital Marketing">
+            <span class="service-card__num">04</span>
+            <span class="icon-tile">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+              </svg>
+            </span>
+            <h3>Digital Marketing</h3>
+            <p>วางกลยุทธ์การตลาดดิจิทัลที่ขับเคลื่อนด้วยข้อมูล เพิ่ม ROI และยอดขายอย่างวัดผลได้จริง</p>
+            <div class="service-card__foot">
+              <span class="small">SEO · Ads · Social Media</span>
+              <span class="service-card__arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2">
+                  <path d="M5 12h14M13 6l6 6-6 6" />
+                </svg></span>
+            </div>
+          </a>
+
+          <a href="pages/service-erp.html" class="service-card reveal d-2" tabindex="0" role="button"
+            aria-label="ERP System">
+            <span class="service-card__num">05</span>
+            <span class="icon-tile">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"
+                stroke-linejoin="round">
+                <rect x="3" y="3" width="7" height="7" />
+                <rect x="14" y="3" width="7" height="7" />
+                <rect x="14" y="14" width="7" height="7" />
+                <rect x="3" y="14" width="7" height="7" />
+              </svg>
+            </span>
+            <h3>ERP System</h3>
+            <p>ระบบจัดการองค์กรครบวงจร ช่วยให้ธุรกิจของคุณทำงานได้อย่างมีประสิทธิภาพและแม่นยำ</p>
+            <div class="service-card__foot">
+              <span class="small">Inventory · Finance · HR</span>
+              <span class="service-card__arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2">
+                  <path d="M5 12h14M13 6l6 6-6 6" />
+                </svg></span>
+            </div>
+          </a>
+
+          <a href="pages/service-branding.html" class="service-card reveal d-3" tabindex="0" role="button"
+            aria-label="Branding">
+            <span class="service-card__num">06</span>
+            <span class="icon-tile">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+              </svg>
+            </span>
+            <h3>Branding</h3>
+            <p>สร้างตัวตนและเอกลักษณ์ของแบรนด์ที่จดจำได้ง่ายและแข็งแกร่ง ตั้งแต่โลโก้จนถึง Brand Guideline</p>
+            <div class="service-card__foot">
+              <span class="small">Logo · Identity · Guideline</span>
+              <span class="service-card__arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2">
+                  <path d="M5 12h14M13 6l6 6-6 6" />
+                </svg></span>
+            </div>
+          </a>
+        </div>
+
+
+      </div>
+    </section>
+
+    <!-- ═══════════════════════ PORTFOLIO ═══════════════════════ -->
+    <section class="section portfolio" id="portfolio">
+      <div class="container">
+        <div class="sec-head reveal">
+          <p class="eyebrow eyebrow--tag">Our Work</p>
+          <h2>ผลงานที่ผ่านมาของเรา</h2>
+          <p>ตัวอย่างส่วนหนึ่งจากผลงานที่เราภาคภูมิใจ ครอบคลุมหลากหลายอุตสาหกรรม</p>
+        </div>
+
+        <div class="filters reveal" id="portfolioFilters">
+          <button class="filter-btn is-active" data-filter="all">ทั้งหมด</button>
+          <button class="filter-btn" data-filter="UI/UX Design">UI/UX Design</button>
+          <button class="filter-btn" data-filter="Web Development">Web Development</button>
+          <button class="filter-btn" data-filter="Branding">Branding</button>
+          <button class="filter-btn" data-filter="Graphic Design">Graphic Design</button>
+          <button class="filter-btn" data-filter="Digital Marketing">Digital Marketing</button>
+          <button class="filter-btn" data-filter="ERP System">ERP System</button>
+        </div>
+
+        <div class="portfolio-grid" id="portfolioGrid">
+          <!-- populated by data-portfolio.js + main.js -->
+        </div>
+        <div class="portfolio__foot">
+          <button class="btn btn-outline" id="loadMoreBtn">โหลดผลงานเพิ่มเติม</button>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ═══════════════════════ TESTIMONIALS ═══════════════════════ -->
+    <section class="section testimonials" id="testimonials">
+      <div class="container">
+        <div class="sec-head sec-head--center reveal">
+          <p class="eyebrow eyebrow--light">Testimonials</p>
+          <h2>เสียงจากลูกค้าของเรา</h2>
+          <p>ความไว้วางใจจากลูกค้าคือเครื่องพิสูจน์คุณภาพงานของเราที่ดีที่สุด</p>
+        </div>
+      </div>
+
+      <div class="container t-track-wrap">
+        <div class="t-track" id="testimonialTrack">
+
+          <div class="t-slide">
+            <div class="t-card">
+              <div class="t-card__stars">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2l3 7h7l-5.5 4.5L18.5 21 12 16.5 5.5 21l2-7.5L2 9h7z" />
+                </svg>
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2l3 7h7l-5.5 4.5L18.5 21 12 16.5 5.5 21l2-7.5L2 9h7z" />
+                </svg>
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2l3 7h7l-5.5 4.5L18.5 21 12 16.5 5.5 21l2-7.5L2 9h7z" />
+                </svg>
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2l3 7h7l-5.5 4.5L18.5 21 12 16.5 5.5 21l2-7.5L2 9h7z" />
+                </svg>
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2l3 7h7l-5.5 4.5L18.5 21 12 16.5 5.5 21l2-7.5L2 9h7z" />
+                </svg>
+              </div>
+              <p class="t-card__quote">"ทีมงานเข้าใจโจทย์ธุรกิจตั้งแต่การพูดคุยครั้งแรก ผลงานที่ได้เกินความคาดหวัง
+                ทั้งดีไซน์และประสิทธิภาพของเว็บไซต์ใหม่ ยอดขายออนไลน์เติบโตขึ้นชัดเจน"</p>
+              <div class="t-card__person">
+                <span class="t-avatar">ณC</span>
+                <span><b>ณัฐชา จันทร์เพ็ญ</b><span>Marketing Director, Mandarin Oriental</span></span>
+              </div>
+            </div>
+            <div class="t-card">
+              <div class="t-card__stars">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2l3 7h7l-5.5 4.5L18.5 21 12 16.5 5.5 21l2-7.5L2 9h7z" />
+                </svg>
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2l3 7h7l-5.5 4.5L18.5 21 12 16.5 5.5 21l2-7.5L2 9h7z" />
+                </svg>
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2l3 7h7l-5.5 4.5L18.5 21 12 16.5 5.5 21l2-7.5L2 9h7z" />
+                </svg>
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2l3 7h7l-5.5 4.5L18.5 21 12 16.5 5.5 21l2-7.5L2 9h7z" />
+                </svg>
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2l3 7h7l-5.5 4.5L18.5 21 12 16.5 5.5 21l2-7.5L2 9h7z" />
+                </svg>
+              </div>
+              <p class="t-card__quote">"ระบบ ERP ที่ Graphic TECH พัฒนาให้ช่วยลดเวลาทำงานด้าน Inventory ไปกว่าครึ่ง
+                ทีมซัพพอร์ตตอบไวและแก้ปัญหาให้ทันทีทุกครั้งที่ติดต่อไป"</p>
+              <div class="t-card__person">
+                <span class="t-avatar">ธK</span>
+                <span><b>ธนกร กิตติวัฒน์</b><span>COO, LogiPro Logistics</span></span>
+              </div>
+            </div>
+            <div class="t-card">
+              <div class="t-card__stars">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2l3 7h7l-5.5 4.5L18.5 21 12 16.5 5.5 21l2-7.5L2 9h7z" />
+                </svg>
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2l3 7h7l-5.5 4.5L18.5 21 12 16.5 5.5 21l2-7.5L2 9h7z" />
+                </svg>
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2l3 7h7l-5.5 4.5L18.5 21 12 16.5 5.5 21l2-7.5L2 9h7z" />
+                </svg>
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2l3 7h7l-5.5 4.5L18.5 21 12 16.5 5.5 21l2-7.5L2 9h7z" />
+                </svg>
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2l3 7h7l-5.5 4.5L18.5 21 12 16.5 5.5 21l2-7.5L2 9h7z" />
+                </svg>
+              </div>
+              <p class="t-card__quote">"Rebrand ครั้งนี้ทำให้แบรนด์เราดูมืออาชีพขึ้นมาก ลูกค้าเก่าทักมาชมเยอะมาก
+                ทีมออกแบบฟังความต้องการและปรับจนกว่าจะได้งานที่ใช่ที่สุด"</p>
+              <div class="t-card__person">
+                <span class="t-avatar">พS</span>
+                <span><b>พิมพ์ชนก สายชล</b><span>Founder, Siam Collection</span></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="t-slide">
+            <div class="t-card">
+              <div class="t-card__stars">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2l3 7h7l-5.5 4.5L18.5 21 12 16.5 5.5 21l2-7.5L2 9h7z" />
+                </svg>
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2l3 7h7l-5.5 4.5L18.5 21 12 16.5 5.5 21l2-7.5L2 9h7z" />
+                </svg>
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2l3 7h7l-5.5 4.5L18.5 21 12 16.5 5.5 21l2-7.5L2 9h7z" />
+                </svg>
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2l3 7h7l-5.5 4.5L18.5 21 12 16.5 5.5 21l2-7.5L2 9h7z" />
+                </svg>
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2l3 7h7l-5.5 4.5L18.5 21 12 16.5 5.5 21l2-7.5L2 9h7z" />
+                </svg>
+              </div>
+              <p class="t-card__quote">"แอปมือถือที่ออกแบบให้ผู้ป่วยใช้งานง่ายมาก ทีม UX ลงพื้นที่ทำ Research จริง
+                ไม่ใช่แค่ออกแบบตามความสวยงามอย่างเดียว"</p>
+              <div class="t-card__person">
+                <span class="t-avatar">อW</span>
+                <span><b>อรวรรณ วงศ์สุริยะ</b><span>Product Manager, FlowMed</span></span>
+              </div>
+            </div>
+            <div class="t-card">
+              <div class="t-card__stars">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2l3 7h7l-5.5 4.5L18.5 21 12 16.5 5.5 21l2-7.5L2 9h7z" />
+                </svg>
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2l3 7h7l-5.5 4.5L18.5 21 12 16.5 5.5 21l2-7.5L2 9h7z" />
+                </svg>
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2l3 7h7l-5.5 4.5L18.5 21 12 16.5 5.5 21l2-7.5L2 9h7z" />
+                </svg>
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2l3 7h7l-5.5 4.5L18.5 21 12 16.5 5.5 21l2-7.5L2 9h7z" />
+                </svg>
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2l3 7h7l-5.5 4.5L18.5 21 12 16.5 5.5 21l2-7.5L2 9h7z" />
+                </svg>
+              </div>
+              <p class="t-card__quote">"แคมเปญการตลาดที่ทำให้เห็นตัวเลข ROI ชัดเจนทุกเดือน ทีมงานอัปเดตผลลัพธ์
+                และปรับกลยุทธ์ให้เร็วตามสถานการณ์ตลาดจริง"</p>
+              <div class="t-card__person">
+                <span class="t-avatar">กP</span>
+                <span><b>กันตินันท์ ปิยะวงศ์</b><span>Founder, Bloom Beauty</span></span>
+              </div>
+            </div>
+            <div class="t-card">
+              <div class="t-card__stars">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2l3 7h7l-5.5 4.5L18.5 21 12 16.5 5.5 21l2-7.5L2 9h7z" />
+                </svg>
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2l3 7h7l-5.5 4.5L18.5 21 12 16.5 5.5 21l2-7.5L2 9h7z" />
+                </svg>
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2l3 7h7l-5.5 4.5L18.5 21 12 16.5 5.5 21l2-7.5L2 9h7z" />
+                </svg>
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2l3 7h7l-5.5 4.5L18.5 21 12 16.5 5.5 21l2-7.5L2 9h7z" />
+                </svg>
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2l3 7h7l-5.5 4.5L18.5 21 12 16.5 5.5 21l2-7.5L2 9h7z" />
+                </svg>
+              </div>
+              <p class="t-card__quote">"งานพิมพ์และแพคเกจจิ้งออกมาคุณภาพดีมาก สีตรงตาม Brand Guideline ทุกจุด
+                ประสานงานง่าย ตอบไว แนะนำเลยครับ"</p>
+              <div class="t-card__person">
+                <span class="t-avatar">ชT</span>
+                <span><b>ชัยวัฒน์ ตันติเวชกุล</b><span>Owner, Kinto Coffee</span></span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="t-controls">
+        <button class="t-arrow" id="tPrev" aria-label="ก่อนหน้า"><svg viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2">
+            <path d="M15 18l-6-6 6-6" />
+          </svg></button>
+        <div class="t-dots" id="tDots">
+          <span class="t-dot is-active"></span><span class="t-dot"></span>
+        </div>
+        <button class="t-arrow" id="tNext" aria-label="ถัดไป"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2">
+            <path d="M9 18l6-6-6-6" />
+          </svg></button>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════ FAQ ═══════════════════════ -->
+    <section class="section section--soft" id="faq">
+      <div class="container container--narrow">
+        <div class="sec-head reveal">
+          <p class="eyebrow eyebrow--tag">FAQ</p>
+          <h2>คำถามที่พบบ่อย</h2>
+          <p>ยังมีคำถามอื่นๆ ที่อยากรู้เพิ่มเติม? ทักหาทีมงานได้ทุกช่องทาง</p>
+        </div>
+
+        <div class="accordion reveal" id="faqAccordion">
+          <div class="acc-item is-open">
+            <button class="acc-trigger" aria-expanded="true">
+              ใช้เวลานานแค่ไหนกว่าจะเห็นผลงานเบื้องต้น?
+              <span class="acc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4">
+                  <path d="M12 5v14M5 12h14" />
+                </svg></span>
+            </button>
+            <div class="acc-panel">
+              <div class="acc-panel__inner">โดยเฉลี่ยลูกค้าจะเห็น Concept หรือ Wireframe เบื้องต้นภายใน 5-7 วันทำการ
+                หลังจากตกลง Scope งานและชำระมัดจำ ขึ้นอยู่กับความซับซ้อนของแต่ละโปรเจกต์</div>
+            </div>
+          </div>
+          <div class="acc-item">
+            <button class="acc-trigger" aria-expanded="false">
+              คิดค่าบริการอย่างไร มีแพ็กเกจสำเร็จรูปไหม?
+              <span class="acc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4">
+                  <path d="M12 5v14M5 12h14" />
+                </svg></span>
+            </button>
+            <div class="acc-panel">
+              <div class="acc-panel__inner">เรามีทั้งแพ็กเกจมาตรฐานสำหรับงานทั่วไป และแบบ Custom Quote ตาม Scope จริง
+                ทีมงานจะประเมินราคาให้ฟรีหลังทราบรายละเอียดโปรเจกต์ของคุณ</div>
+            </div>
+          </div>
+          <div class="acc-item">
+            <button class="acc-trigger" aria-expanded="false">
+              หลังส่งมอบงานแล้ว มีการดูแลต่อหรือไม่?
+              <span class="acc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4">
+                  <path d="M12 5v14M5 12h14" />
+                </svg></span>
+            </button>
+            <div class="acc-panel">
+              <div class="acc-panel__inner">ทุกโปรเจกต์มีระยะเวลาดูแลหลังส่งมอบฟรีอย่างน้อย 30 วัน และมีแพ็กเกจ
+                Maintenance รายเดือนสำหรับลูกค้าที่ต้องการดูแลต่อเนื่องระยะยาว</div>
+            </div>
+          </div>
+          <div class="acc-item">
+            <button class="acc-trigger" aria-expanded="false">
+              รับงานด่วนหรือโปรเจกต์ขนาดเล็กหรือไม่?
+              <span class="acc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4">
+                  <path d="M12 5v14M5 12h14" />
+                </svg></span>
+            </button>
+            <div class="acc-panel">
+              <div class="acc-panel__inner">รับครับ เรามีทีมที่ดูแลงานเร่งด่วนโดยเฉพาะ พร้อมทั้งงานขนาดเล็กอย่าง
+                Logo หรือ Landing Page เดี่ยว ไปจนถึงระบบขนาดใหญ่ระดับองค์กร</div>
+            </div>
+          </div>
+          <div class="acc-item">
+            <button class="acc-trigger" aria-expanded="false">
+              ติดต่อขอใบเสนอราคาได้ช่องทางไหนบ้าง?
+              <span class="acc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4">
+                  <path d="M12 5v14M5 12h14" />
+                </svg></span>
+            </button>
+            <div class="acc-panel">
+              <div class="acc-panel__inner">ติดต่อได้ผ่านฟอร์มด้านล่างของหน้านี้ อีเมล โทรศัพท์ หรือ LINE Official
+                ทีมงานตอบกลับภายใน 24-48 ชั่วโมงทำการ</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ═══════════════════════ CONTACT ═══════════════════════ -->
+    <section class="section contact-home" id="contact">
+      <div class="container">
+        <div class="sec-head sec-head--center reveal">
+          <h2>พร้อมเริ่มโปรเจกต์ใหม่กับเรา?</h2>
+          <p>บอกเราเรื่องของคุณ ทีมงานพร้อมรับฟังและออกแบบทางออกที่ดีที่สุดสำหรับธุรกิจของคุณ</p>
+        </div>
+
+        <div class="contact-home__wrap reveal">
+          <div class="contact-home__info">
+            <h2>ช่องทางติดต่อเรา</h2>
+            <p>เลือกช่องทางที่สะดวก ทีมงานพร้อมตอบกลับภายใน 24 ชั่วโมง</p>
+            <ul class="contact-home__list">
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0118 0z" />
+                  <circle cx="12" cy="10" r="3" />
+                </svg>
+                <span>123 อาคารเทคโนโลยี ชั้น 8 ถ.สุขุมวิท แขวงคลองตันเหนือ เขตวัฒนา กรุงเทพฯ 10110</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path
+                    d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.362 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0122 16.92z" />
+                </svg>
+                <span>02-123-4567 &nbsp;/&nbsp; 081-234-5678</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M4 4h16a2 2 0 012 2v12a2 2 0 01-2 2H4a2 2 0 01-2-2V6a2 2 0 012-2z" />
+                  <path d="M22 6l-10 7L2 6" />
+                </svg>
+                <span>hello@graphictech.co.th</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="4" width="18" height="18" rx="2" />
+                  <path d="M16 2v4M8 2v4M3 10h18" />
+                </svg>
+                <span>จันทร์–เสาร์ 9:00–18:00 น.</span>
+              </li>
+            </ul>
+            <div class="footer__social" style="margin-top:32px">
+              <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M22 12a10 10 0 10-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.77-3.89 1.09 0 2.24.2 2.24.2v2.46H15.2c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.99A10 10 0 0022 12z" />
+                </svg></a>
+              <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2">
+                  <rect x="2" y="2" width="20" height="20" rx="5" />
+                  <circle cx="12" cy="12" r="4" />
+                  <circle cx="17.5" cy="6.5" r="1" />
+                </svg></a>
+              <a href="#" aria-label="LINE"><svg viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M12 2C6.48 2 2 5.94 2 10.7c0 4.27 3.56 7.85 8.37 8.55.33.07.77.22.88.5.1.26.07.66.03.92l-.14.9c-.04.26-.2 1.02.9.56 1.1-.47 5.93-3.5 8.09-6 1.5-1.65 2.22-3.32 2.22-5.43C22.35 5.94 17.87 2 12 2z" />
+                </svg></a>
+            </div>
+          </div>
+
+          <form class="contact-home__form" id="contactForm" novalidate>
+            <div class="form-alert form-alert--ok" id="formSuccess">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M20 6L9 17l-5-5" />
+              </svg>
+              ส่งข้อความเรียบร้อยแล้ว ทีมงานจะติดต่อกลับโดยเร็วที่สุด
+            </div>
+            <div class="form-grid">
+              <div class="field">
+                <label for="cfName">ชื่อ-นามสกุล <span class="req">*</span></label>
+                <input type="text" id="cfName" name="name" placeholder="ชื่อของคุณ" required>
+                <p class="field-error">กรุณากรอกชื่อของคุณ</p>
+              </div>
+              <div class="field">
+                <label for="cfPhone">เบอร์โทรศัพท์ <span class="req">*</span></label>
+                <input type="tel" id="cfPhone" name="phone" placeholder="08x-xxx-xxxx" required>
+                <p class="field-error">กรุณากรอกเบอร์โทรศัพท์</p>
+              </div>
+              <div class="field field--full">
+                <label for="cfEmail">อีเมล <span class="req">*</span></label>
+                <input type="email" id="cfEmail" name="email" placeholder="you@example.com" required>
+                <p class="field-error">กรุณากรอกอีเมลให้ถูกต้อง</p>
+              </div>
+              <div class="field field--full">
+                <label for="cfService">บริการที่สนใจ</label>
+                <select id="cfService" name="service">
+                  <option value="">เลือกบริการที่สนใจ</option>
+                  <option value="uiux">UI/UX Design</option>
+                  <option value="graphic">Graphic Design</option>
+                  <option value="web">Web Development</option>
+                  <option value="marketing">Digital Marketing</option>
+                  <option value="erp">ERP System</option>
+                  <option value="branding">Branding</option>
+                  <option value="other">อื่นๆ</option>
+                </select>
+              </div>
+              <div class="field field--full">
+                <label for="cfMessage">รายละเอียดโปรเจกต์ <span class="req">*</span></label>
+                <textarea id="cfMessage" name="message" placeholder="เล่าให้เราฟังคร่าวๆ เกี่ยวกับโปรเจกต์ของคุณ"
+                  required></textarea>
+                <p class="field-error">กรุณากรอกรายละเอียดโปรเจกต์</p>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block btn-lg mt-40">
+              ส่งข้อความถึงเรา
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" />
+              </svg>
+            </button>
+            <p class="form-note tc mt-40">หรือส่งอีเมลถึงเราโดยตรงที่ <a href="mailto:hello@graphictech.co.th"
+                class="accent">hello@graphictech.co.th</a></p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ═══════════════════════ FOOTER PLACEHOLDER ═══════════════════════ -->
+  <div id="app-footer"></div>
+
+  <!-- ═══════════════════════ OVERLAY PANEL ═══════════════════════ -->
+  <div class="overlay" id="overlay" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="overlay-backdrop" id="overlayBackdrop"></div>
+    <div class="overlay-panel" id="overlayPanel">
+      <button class="overlay-close" id="overlayClose" aria-label="ปิด">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <path d="M18 6L6 18M6 6l12 12" />
+        </svg>
+      </button>
+      <div class="overlay-body" id="overlayContent">
+        <div class="overlay-loading">
+          <div class="spinner"></div>
+          <p>กำลังโหลด...</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/layout-components.js"></script>
+  <script src="js/data-portfolio.js"></script>
+  <script src="js/detail.js"></script>
+  <script src="js/counters.js"></script>
+  <script src="js/testimonials.js"></script>
+  <script src="js/faq.js"></script>
+  <script src="js/contact-form.js"></script>
+  <script src="js/main.js"></script>
+</body>
+
+</html>
