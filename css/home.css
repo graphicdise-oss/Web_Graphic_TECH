@@ -716,7 +716,7 @@
   content: '';
   position: absolute;
   inset: 0;
-  background-image: radial-gradient(rgba(255, 255, 255, .14) 1.4px, transparent 1.4px);
+  background-image: radial-gradient(rgb(255, 255, 255) 1.4px, transparent 1.4px);
   background-size: 26px 26px;
   opacity: .35;
 }
@@ -728,6 +728,10 @@
 
 .testimonials .sec-head p {
   color: rgba(255, 255, 255, .72);
+}
+
+.testimonials .sec-head h2 {
+  color: #ffffff;
 }
 
 .t-track-wrap {

@@ -75,7 +75,7 @@
 }
 
 /* Logo */
-.nav__logo { display: flex; align-items: center; gap: 11px; flex-shrink: 0; }
+.nav__logo { display: flex; align-items: center; gap: 0px; flex-shrink: 0; }
 .nav__logo-mark {
   width: 42px; height: 42px;
   display: grid; place-items: center;
@@ -355,7 +355,7 @@
   padding: 22px 0 26px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   gap: 16px;
   flex-wrap: wrap;
   font-size: .85rem;
@@ -391,6 +391,8 @@
 .fab svg { width: 26px; height: 26px; }
 .fab:hover { transform: translateY(-4px) scale(1.06); box-shadow: 0 16px 34px rgba(4, 30, 66, .32); }
 
+.fab--fb     { background: #1877F2; }
+.fab--ig     { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); }
 .fab--line   { background: #06C755; }
 .fab--phone  { background: var(--grad-primary); }
 .fab--wa     { background: #25D366; }

@@ -8,20 +8,20 @@
   <div class="topbar">
     <div class="container topbar__inner">
       <div class="topbar__meta">
-        <a href="mailto:hello@graphictech.co.th">
+        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=graphictech.co.ltd@gmail.com" target="_blank">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M4 4h16a2 2 0 012 2v12a2 2 0 01-2 2H4a2 2 0 01-2-2V6a2 2 0 012-2z" />
             <path d="M22 6l-10 7L2 6" />
           </svg>
-          hello@graphictech.co.th
+          graphictech.co.ltd@gmail.com
         </a>
       </div>
       <div class="topbar__social">
-        <a href="#" aria-label="Facebook"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+        <a href="https://www.facebook.com/profile.php?id=61574200404276" target="_blank" aria-label="Facebook"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
             <path
               d="M22 12a10 10 0 10-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.77-3.89 1.09 0 2.24.2 2.24.2v2.46H15.2c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.99A10 10 0 0022 12z" />
           </svg></a>
-        <a href="#" aria-label="Instagram"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+        <a href="https://www.instagram.com/graphictech.co.ltd/" target="_blank" aria-label="Instagram"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"
             stroke="currentColor" stroke-width="2">
             <rect x="2" y="2" width="20" height="20" rx="5" />
             <circle cx="12" cy="12" r="4" />
@@ -39,13 +39,7 @@
   <header class="navbar" id="navbar">
     <div class="container nav__inner">
       <a href="${basePath}index.html#home" class="nav__logo">
-        <span class="nav__logo-mark">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-            stroke-linejoin="round">
-            <path d="M12 2l9 4.9v10.2L12 22l-9-4.9V6.9L12 2z" />
-            <path d="M12 22V12M21 6.9L12 12 3 6.9" />
-          </svg>
-        </span>
+        <img src="${basePath}assets/images/logo.png" alt="Logo" class="nav__logo-img" style="height: 85px; width: auto; object-fit: contain; margin-right: -5px;">
         <span class="nav__logo-text">
           <b>Graphic<span>TECH</span></b>
           <small>Creative &amp; Technology Studio</small>
@@ -133,10 +127,6 @@
                 </span>
               </a>
             </div>
-            <div class="nav__mega-foot">
-              <p><strong>ไม่แน่ใจว่าต้องใช้บริการไหน?</strong> ปรึกษาทีมงานได้ฟรี</p>
-              <a href="${basePath}index.html#contact" class="btn btn-primary btn-sm">ปรึกษาฟรี</a>
-            </div>
           </div>
         </div>
         <div class="nav__item"><a href="${basePath}index.html#portfolio" class="nav__link">ผลงานของเรา</a></div>
@@ -152,7 +142,7 @@
                 d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.362 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0122 16.92z" />
             </svg>
           </span>
-          <span><small>โทรปรึกษาฟรี</small><b>02-123-4567</b></span>
+          <span><small>โทรปรึกษาฟรี</small><b>082-972-7122</b></span>
         </div>
         <a href="${basePath}index.html#contact" class="btn btn-primary btn-sm">ปรึกษาผู้เชี่ยวชาญฟรี</a>
       </div>
@@ -167,13 +157,7 @@
     <div class="container footer__top">
       <div class="footer__brand">
         <a href="${basePath}index.html#home" class="nav__logo">
-          <span class="nav__logo-mark">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-              stroke-linejoin="round">
-              <path d="M12 2l9 4.9v10.2L12 22l-9-4.9V6.9L12 2z" />
-              <path d="M12 22V12M21 6.9L12 12 3 6.9" />
-            </svg>
-          </span>
+          <img src="${basePath}assets/images/logo.png" alt="Logo" class="nav__logo-img" style="height: 85px; width: auto; object-fit: contain; margin-right: -5px;">
           <span class="nav__logo-text">
             <b>Graphic<span>TECH</span></b>
             <small>Creative &amp; Technology Studio</small>
@@ -182,11 +166,11 @@
         <p>เราสร้างสรรค์ เราพัฒนา เราส่งมอบ — พาร์ทเนอร์ด้านดีไซน์และเทคโนโลยีที่ช่วยให้ธุรกิจของคุณเติบโตอย่างมั่นคง
         </p>
         <div class="footer__social">
-          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor">
+          <a href="https://www.facebook.com/profile.php?id=61574200404276" target="_blank" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor">
               <path
                 d="M22 12a10 10 0 10-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.77-3.89 1.09 0 2.24.2 2.24.2v2.46H15.2c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.99A10 10 0 0022 12z" />
             </svg></a>
-          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+          <a href="https://www.instagram.com/graphictech.co.ltd/" target="_blank" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
               stroke-width="2">
               <rect x="2" y="2" width="20" height="20" rx="5" />
               <circle cx="12" cy="12" r="4" />
@@ -218,9 +202,7 @@
       <div class="footer__col">
         <h4>บริษัท</h4>
         <nav class="footer__links">
-          <a href="${basePath}index.html#about">เกี่ยวกับเรา</a>
           <a href="${basePath}index.html#portfolio">ผลงานของเรา</a>
-          <a href="${basePath}index.html#why">ทำไมต้องเรา</a>
           <a href="${basePath}index.html#faq">คำถามที่พบบ่อย</a>
           <a href="${basePath}index.html#contact">ติดต่อเรา</a>
         </nav>
@@ -234,21 +216,21 @@
               <path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0118 0z" />
               <circle cx="12" cy="10" r="3" />
             </svg>
-            <span>123 อาคารเทคโนโลยี ชั้น 8 ถ.สุขุมวิท กรุงเทพฯ 10110</span>
+            <span>150 หมู่ที่ 3 ซอย 4 ถนนรังสิต-นครนายก ตำบลประชาธิปัตย์ อำเภอธัญบุรี จ.ปทุมธานี 12130</span>
           </li>
           <li>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path
                 d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.362 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0122 16.92z" />
             </svg>
-            <a href="tel:021234567">02-123-4567</a>
+            <a href="tel:0829727122">082-972-7122</a>
           </li>
           <li>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M4 4h16a2 2 0 012 2v12a2 2 0 01-2 2H4a2 2 0 01-2-2V6a2 2 0 012-2z" />
               <path d="M22 6l-10 7L2 6" />
             </svg>
-            <a href="mailto:hello@graphictech.co.th">hello@graphictech.co.th</a>
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=graphictech.co.ltd@gmail.com" target="_blank">graphictech.co.ltd@gmail.com</a>
           </li>
         </ul>
       </div>
@@ -256,11 +238,6 @@
 
     <div class="container footer__bottom">
       <p>© 2026 Graphic TECH. All rights reserved.</p>
-      <nav>
-        <a href="${basePath}index.html#about">เกี่ยวกับเรา</a>
-        <a href="${basePath}index.html#contact">นโยบายความเป็นส่วนตัว</a>
-        <a href="${basePath}index.html#contact">ข้อตกลงการใช้งาน</a>
-      </nav>
     </div>
   </footer>
 
@@ -271,25 +248,24 @@
         <path d="M12 19V5M5 12l7-7 7 7" />
       </svg>
     </a>
-    <a class="fab fab--line" href="https://line.me/R/ti/p/@graphictech" target="_blank" rel="noopener"
-      aria-label="แชทผ่าน LINE">
-      <span class="fab__label">แชทผ่าน LINE</span>
+    <a class="fab fab--fb" href="https://www.facebook.com/profile.php?id=61574200404276" target="_blank" rel="noopener"
+      aria-label="Facebook">
+      <span class="fab__label">Facebook</span>
       <svg viewBox="0 0 24 24" fill="currentColor">
-        <path
-          d="M12 2C6.48 2 2 5.94 2 10.7c0 4.27 3.56 7.85 8.37 8.55.33.07.77.22.88.5.1.26.07.66.03.92l-.14.9c-.04.26-.2 1.02.9.56 1.1-.47 5.93-3.5 8.09-6 1.5-1.65 2.22-3.32 2.22-5.43C22.35 5.94 17.87 2 12 2z" />
+        <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/>
       </svg>
     </a>
-    <a class="fab fab--wa" href="https://wa.me/66812345678" target="_blank" rel="noopener"
-      aria-label="แชทผ่าน WhatsApp">
-      <span class="fab__label">แชทผ่าน WhatsApp</span>
-      <svg viewBox="0 0 24 24" fill="currentColor">
-        <path
-          d="M17.5 14.4c-.3-.15-1.7-.85-2-.94-.27-.1-.46-.15-.66.15-.2.3-.75.94-.92 1.13-.17.2-.34.22-.63.08-.3-.15-1.24-.46-2.36-1.46-.87-.78-1.46-1.73-1.63-2.03-.17-.3-.02-.46.13-.6.13-.14.3-.34.44-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.66-1.6-.91-2.2-.24-.58-.48-.5-.66-.5h-.57c-.2 0-.52.08-.79.37-.27.3-1.04 1-1.04 2.45s1.06 2.85 1.2 3.05c.15.2 2.1 3.2 5.08 4.5.71.3 1.26.49 1.7.62.71.23 1.35.2 1.86.12.57-.08 1.7-.7 1.94-1.36.24-.67.24-1.24.17-1.36-.07-.12-.27-.2-.57-.34z" />
-        <path d="M12 2a10 10 0 00-8.5 15.2L2 22l4.9-1.5A10 10 0 1012 2z" />
+    <a class="fab fab--ig" href="https://www.instagram.com/graphictech.co.ltd/" target="_blank" rel="noopener"
+      aria-label="Instagram">
+      <span class="fab__label">Instagram</span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+        <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"></path>
+        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
       </svg>
     </a>
-    <a class="fab fab--phone fab--pulse" href="tel:021234567" aria-label="โทรหาเรา">
-      <span class="fab__label">โทร 02-123-4567</span>
+    <a class="fab fab--phone fab--pulse" href="tel:0829727122" aria-label="โทรหาเรา">
+      <span class="fab__label">โทร 082-972-7122</span>
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <path
           d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.362 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0122 16.92z" />
@@ -345,3 +321,5 @@
   }, 100);
 
 })();
+
+
