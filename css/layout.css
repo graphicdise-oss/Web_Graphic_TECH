@@ -657,7 +657,7 @@
   .topbar__meta .topbar__hide-sm { display: none; }
   .topbar__inner { justify-content: center; }
   .footer__top { grid-template-columns: 1fr; gap: 34px; }
-  .footer__bottom { flex-direction: column; text-align: center; }
+  .footer__bottom { flex-direction: column; text-align: center; padding-bottom: 90px; }
   .fab-stack { right: 14px; bottom: 16px; gap: 10px; }
   .fab { width: 48px; height: 48px; }
   .fab svg { width: 23px; height: 23px; }
@@ -671,4 +671,16 @@
   .nav__logo-mark svg { width: 19px; height: 19px; }
   .nav__logo-text b { font-size: 1.05rem; }
   .nav__inner { gap: 10px; }
+}
+
+/* Mobile Footer Fixes */
+@media (max-width: 700px) {
+  .footer__top { text-align: center; }
+  .footer__brand .nav__logo { justify-content: center; margin-bottom: 24px; }
+  .footer h4::after { left: 50%; transform: translateX(-50%); }
+  .footer__social { justify-content: center; margin-top: 10px; }
+  .footer__links { align-items: center; }
+  .footer__contact { align-items: center; padding-right: 0; }
+  .footer__contact li { display: block; word-break: break-word; text-align: center; }
+  .footer__contact svg { display: inline-block; vertical-align: middle; margin-right: 6px; margin-top: -3px; }
 }
