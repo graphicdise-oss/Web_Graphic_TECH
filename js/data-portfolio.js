@@ -9,7 +9,7 @@ const PORTFOLIO_ITEMS = [
     id: 'web-mandarin',
     title: 'Mandarin Oriental E-Commerce',
     category: 'Web Development',
-    image: 'assets/images/portfolio/banner.png',
+    image: 'assets/images/services/web/w1.png',
     tags: ['React', 'Node.js', 'E-Commerce'],
     year: 2024,
   },

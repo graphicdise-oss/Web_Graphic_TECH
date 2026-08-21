@@ -53,7 +53,7 @@
     const submitBtn = form.querySelector('button[type="submit"]');
     if (submitBtn) submitBtn.disabled = true;
 
-    fetch('https://formsubmit.co/ajax/56fd09c065887486d53b2b90141e5b1a', {
+    fetch('https://formsubmit.co/ajax/graphictech.co.ltd@gmail.com', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

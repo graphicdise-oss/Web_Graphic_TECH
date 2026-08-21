@@ -1,4 +1,4 @@
-(function() {
+(function () {
   const isSubfolder = window.location.pathname.indexOf('/pages/') !== -1 || window.location.pathname.indexOf('\\pages\\') !== -1;
   const basePath = isSubfolder ? '../' : './';
   const pagesPath = isSubfolder ? './' : 'pages/';
@@ -286,39 +286,7 @@
     footerEl.innerHTML = appFooter;
   }
 
-  // Bind Events for Nav Toggle
-  setTimeout(() => {
-    const navToggle = document.getElementById('navToggle');
-    const navMenu = document.getElementById('navMenu');
-    const navBackdrop = document.getElementById('navBackdrop');
-    if (navToggle && navMenu && navBackdrop) {
-      navToggle.addEventListener('click', () => {
-        navToggle.classList.toggle('open');
-        navMenu.classList.toggle('open');
-        navBackdrop.classList.toggle('open');
-      });
-      navBackdrop.addEventListener('click', () => {
-        navToggle.classList.remove('open');
-        navMenu.classList.remove('open');
-        navBackdrop.classList.remove('open');
-      });
-    }
 
-    // Bind back to top
-    const toTop = document.getElementById('toTop');
-    if (toTop) {
-      toTop.addEventListener('click', () => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      });
-      window.addEventListener('scroll', () => {
-        if (window.scrollY > 300) {
-          toTop.classList.add('visible');
-        } else {
-          toTop.classList.remove('visible');
-        }
-      });
-    }
-  }, 100);
 
 })();
 
